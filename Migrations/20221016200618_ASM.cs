@@ -53,7 +53,7 @@ namespace ASM.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(nullable: true),
-                    ISBN = table.Column<int>(nullable: false),
+                    ISBN = table.Column<string>(nullable: true),
                     PublicationDate = table.Column<DateTime>(nullable: false),
                     Publisher = table.Column<string>(nullable: true),
                     Category = table.Column<string>(nullable: true),

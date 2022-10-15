@@ -32,8 +32,8 @@ namespace ASM.Migrations
                     b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ISBN")
-                        .HasColumnType("int");
+                    b.Property<string>("ISBN")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("PublicationDate")
                         .HasColumnType("datetime2");

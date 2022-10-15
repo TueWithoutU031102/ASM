@@ -25,19 +25,24 @@ namespace ASM.Controllers
             return View(context.Books.ToList());
         }
 
-        public IActionResult Detail(int id)
+        /*(public IActionResult Detail(int id)
         {
             var book = context.Books.FirstOrDefault();
             return View(book);
-        }
+        }*/
+
 
         /*[HttpGet]
         public IActionResult Create()
         {
 
         }*/
+        public IActionResult Create()
+        {
+            return View();
+        }
 
-        /*[HttpPost]
+        [HttpPost]
         public IActionResult Create(Book book)
         {
             if (ModelState.IsValid)
@@ -48,6 +53,6 @@ namespace ASM.Controllers
                 return RedirectToAction("index");
             }
             else return View(book);
-        }*/
+        }
     }
 }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASM.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221015101334_ASM")]
+    [Migration("20221016200618_ASM")]
     partial class ASM
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,8 +34,8 @@ namespace ASM.Migrations
                     b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ISBN")
-                        .HasColumnType("int");
+                    b.Property<string>("ISBN")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("PublicationDate")
                         .HasColumnType("datetime2");
