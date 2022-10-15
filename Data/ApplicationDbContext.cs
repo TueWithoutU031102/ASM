@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using ASM.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,10 @@ namespace ASM.Data
             : base(options)
         {
         }
+
+        //tạo bảng (DB) tương ứng model (Code)
+        //Book: tên của Model (design của bảng)
+        //Books: tên của bảng & tên của DbSet (collection) được gọi đến trong Controller
+        public DbSet<Book> Books { get; set; }
     }
 }
