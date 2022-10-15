@@ -35,7 +35,7 @@ namespace ASM.Controllers
 
         }*/
 
-        [HttpPost]
+        /*[HttpPost]
         public IActionResult Create(Book book)
         {
             if (ModelState.IsValid)
@@ -43,9 +43,9 @@ namespace ASM.Controllers
                 context.Books.Add(book);
                 context.SaveChanges();
                 TempData["Message"] = "Add a new book successfully!!!!!!";
-                return RedirectToAction("Index");
+                return RedirectToAction("index");
             }
             else return View(book);
-        }
+        }*/
     }
 }
