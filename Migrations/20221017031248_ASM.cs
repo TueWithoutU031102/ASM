@@ -57,7 +57,8 @@ namespace ASM.Migrations
                     PublicationDate = table.Column<DateTime>(nullable: false),
                     Publisher = table.Column<string>(nullable: true),
                     Category = table.Column<string>(nullable: true),
-                    Author = table.Column<string>(nullable: true)
+                    Author = table.Column<string>(nullable: true),
+                    Image = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

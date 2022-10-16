@@ -25,11 +25,11 @@ namespace ASM.Controllers
             return View(context.Books.ToList());
         }
 
-        /*(public IActionResult Detail(int id)
+        public IActionResult Detail(int id)
         {
-            var book = context.Books.FirstOrDefault();
+            var book = context.Books.FirstOrDefault(b => b.Id == id);
             return View(book);
-        }*/
+        }
 
 
         /*[HttpGet]
