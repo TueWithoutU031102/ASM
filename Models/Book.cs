@@ -13,8 +13,9 @@ namespace ASM.Models
         [DataType(DataType.Date)]
         public DateTime PublicationDate { get; set; }
         public string Publisher { get; set; }
-        public string Category { get; set; }
         public string Author { get; set; }
         public string Image { get; set; }
+        public int CategoryId { get;set; }
+        public Category Category { get; set; }
     }
 }

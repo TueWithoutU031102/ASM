@@ -26,15 +26,13 @@ namespace ASM.Controllers
             return View(book);
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
+            var categories = context.Categories.ToList();
+            ViewBag.Categories = categories;
             return View();
         }
-        /*[HttpGet]
-        public IActionResult Create()
-        {
-
-        }*/
 
         [HttpPost]
         public IActionResult Create(Book book)

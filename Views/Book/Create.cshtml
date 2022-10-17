@@ -1,5 +1,4 @@
 ﻿@model ASM.Models.Book;
-
 <form method="post" asp-controller="Book" asp-action="Create">
     <h2>Add a new book</h2>
     <div class="form-group">
@@ -23,9 +22,16 @@
         <span class="text-danger" asp-validation-for="@Model.Publisher"></span>
     </div>
     <div class="form-group">
-        <label class="h4 text-success">Book Category</label>
-        <input class="form-control" asp-for="@Model.Category" />
-        <span class="text-danger" asp-validation-for="@Model.Category"></span>
+        <label class="h4 text-success">Category</label>
+        <select class="list-group-item" asp-for="CategoryId">
+            <option value="0">Select an category</option>
+            @foreach (var category in ViewBag.Categories)
+            {
+                <option value="@category.Id">
+                    @category.CategoryName
+                </option>
+            }
+        </select>
     </div>
     <div class="form-group">
         <label class="h4 text-success">Book Author</label>
