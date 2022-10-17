@@ -34,6 +34,27 @@ namespace ASM.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Edit()
+        {
+            var categories = context.Categories.ToList();
+            ViewBag.Categories = categories;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Book book)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Books.Update(book);
+                context.SaveChanges();
+                TempData["Message"] = "Book successfully edited";
+                return RedirectToAction("index");
+            }
+            else return View(book);
+        }
+
         [HttpPost]
         public IActionResult Create(Book book)
         {
