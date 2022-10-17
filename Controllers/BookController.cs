@@ -20,27 +20,21 @@ namespace ASM.Controllers
             return View(context.Books.ToList());
         }
 
-        public IActionResult ListBook()
-        {
-            return View(context.Books.ToList());
-        }
-
         public IActionResult Detail(int id)
         {
             var book = context.Books.FirstOrDefault(b => b.Id == id);
             return View(book);
         }
 
-
+        public IActionResult Create()
+        {
+            return View();
+        }
         /*[HttpGet]
         public IActionResult Create()
         {
 
         }*/
-        public IActionResult Create()
-        {
-            return View();
-        }
 
         [HttpPost]
         public IActionResult Create(Book book)

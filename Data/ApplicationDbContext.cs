@@ -18,5 +18,6 @@ namespace ASM.Data
         //Book: tên của Model (design của bảng)
         //Books: tên của bảng & tên của DbSet (collection) được gọi đến trong Controller
         public DbSet<Book> Books { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

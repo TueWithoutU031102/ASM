@@ -1,0 +1,25 @@
+﻿@model ICollection<ASM.Models.Category>
+<div class="container col-md-8 text-center mt-3">
+    <h1 class="text text-danger">Category List</h1>
+    <h4 class="text text-info">Total categories: @ViewData["total"]</h4>
+    <a class="btn btn-primary" asp-action="Create">Create</a>
+    <table class="table table-primary mt-3">
+        <tr>
+            <th>Category name</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryName</td>
+                <td>
+                    <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"
+                   onclick="return confirm('Are you sure you want to delete this student?');">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>
