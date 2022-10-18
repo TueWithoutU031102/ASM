@@ -22,7 +22,7 @@ namespace ASM.Controllers
         
         public IActionResult Detail(int id)
         {
-            var book = context.Books.FirstOrDefault(b => b.Id == id);
+            var book = context.Books.Include(c=>c.Category).FirstOrDefault(b => b.Id == id);
             return View(book);
         }
 

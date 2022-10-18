@@ -1,6 +1,7 @@
 ﻿using ASM.Data;
 using ASM.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace ASM.Controllers
@@ -18,6 +19,23 @@ namespace ASM.Controllers
             return View(context.Categories.ToList());
         }
 
+        public IActionResult Detail(int? id)
+        {
+            if (id == null) return NotFound();
+            var categories = context.Categories.Include(b => b.Books).FirstOrDefault(c => c.Id == id);
+            return View(categories);
+        }
+
+        public IActionResult Info(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var category = context.Categories.Include(c => c.Books).FirstOrDefault(c => c.Id == id);
+            return View(category);
+        }
+        [HttpGet]
         public IActionResult Create()
         {
             return View();

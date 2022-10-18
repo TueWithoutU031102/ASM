@@ -24,15 +24,14 @@
                 <th>Author</th>
                 <td>@Model.Author</td>
             </tr>
-            @*<tr>
+            <tr>
                 <th>Category</th>
                 <td>
-                    <a asp-controller="Category" asp-action="Info"
-                       asp-route-id="@Model.Category.Id">
-                        @Model.Category.Name
+                    <a asp-controller="Category" asp-action="Info" asp-route-id="@Model.Category.Id">
+                        @Model.Category.CategoryName
                     </a>
                 </td>
-            </tr>*@
+            </tr>
         </table>
     </div>
 </div>
