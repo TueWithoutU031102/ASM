@@ -5,14 +5,23 @@
             <tr>
                 <th colspan="2" class="h3 text-primary">@Model.CategoryName</th>
             </tr>
-            <tr>
-                <th>Book</th>
-                <td>
-                    <a asp-controller="Book" asp-action="Info" asp-route-id="@Model.Books.Id">
-                        @Model.Books.Title
-                    </a>
-                </td>
-            </tr>
+            @foreach (var book in Model.Books)
+            {
+                <tr>
+                    <td>
+                        <img src="@book.Image" width="400" height="400">
+                    </td>
+                    <td>
+                        <a asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">@book.Title</a>
+                    </td>
+                    <td>
+                        @book.ISBN
+                    </td>
+                    <td>
+                        @book.Author
+                    </td>
+                </tr>
+            }
         </table>
     </div>
 </div>

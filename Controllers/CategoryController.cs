@@ -19,10 +19,11 @@ namespace ASM.Controllers
             return View(context.Categories.ToList());
         }
 
-        public IActionResult Detail(int id)
+        public IActionResult Detail(int? id)
         {
-            var category = context.Categories.FirstOrDefault(c => c.Id == id);
-            return View(category);
+            if (id == null) return NotFound();
+            var categories = context.Categories.Include(b => b.Books).FirstOrDefault(c => c.Id == id);
+            return View(categories);
         }
 
         public IActionResult Info(int? id)
@@ -31,16 +32,10 @@ namespace ASM.Controllers
             {
                 return NotFound();
             }
-            var category = context.Categories
-                                    .Include(c => c.Books)
-                                    .FirstOrDefault(c => c.Id == id);
-            //Note: khi muốn truy xuất dữ liệu của bảng B từ bảng A
-            //thì cần sử dụng Include kết hợp với FirstOrDefault
-            //còn nếu chỉ truy xuất thông tin id đơn thuần thì sử dụng
-            //Find hoặc FirstOrDefault đều được
+            var category = context.Categories.Include(c => c.Books).FirstOrDefault(c => c.Id == id);
             return View(category);
         }
-
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
