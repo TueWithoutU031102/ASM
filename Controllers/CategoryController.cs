@@ -26,15 +26,7 @@ namespace ASM.Controllers
             return View(categories);
         }
 
-        public IActionResult Info(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-            var category = context.Categories.Include(c => c.Books).FirstOrDefault(c => c.Id == id);
-            return View(category);
-        }
+
         [HttpGet]
         public IActionResult Create()
         {
