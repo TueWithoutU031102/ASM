@@ -15,11 +15,12 @@ namespace ASM.Controllers
         }
 
         [Route("/Book")]
+        [HttpGet]
         public IActionResult Index()
         {
             return View(context.Books.ToList());
         }
-        
+
         public IActionResult Detail(int? id)
         {
             if (id == null)
@@ -67,8 +68,12 @@ namespace ASM.Controllers
         [HttpGet]
         public IActionResult Edit(int? id)
         {
-            Book b = context.Books.Single(x => x.Id == id);
-            return View(b);
+            if (id == null) return NotFound();
+            var book = context.Books.Find(id);
+            if (book == null) return NotFound();
+            var categories = context.Categories.ToList();
+            ViewBag.Categories = categories;
+            return View(book);
         }
 
         [HttpPost]
