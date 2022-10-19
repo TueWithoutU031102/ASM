@@ -1,7 +1,7 @@
 ﻿@model ASM.Models.Category;
 
-<form method="post" asp-controller="Category" asp-action="Create">
-    <h2>Add a new book</h2>
+<form class="all-form" method="post" asp-controller="Category" asp-action="Create">
+    <h3 style="text-align: center">Add a new Category</h3>
     <div class="form-group">
         <label class="h4 text-success">Category name</label>
         <input class="form-control" asp-for="@Model.CategoryName" />
@@ -10,4 +10,5 @@
     <div class="form-group">
         <input class="btn btn-primary" type="submit" value="Create" />
     </div>
+
 </form>

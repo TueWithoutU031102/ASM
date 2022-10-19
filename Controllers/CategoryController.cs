@@ -1,6 +1,7 @@
 ﻿using ASM.Data;
 using ASM.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
 namespace ASM.Controllers
@@ -18,6 +19,15 @@ namespace ASM.Controllers
             return View(context.Categories.ToList());
         }
 
+        public IActionResult Detail(int? id)
+        {
+            if (id == null) return NotFound();
+            var categories = context.Categories.Include(b => b.Books).FirstOrDefault(c => c.Id == id);
+            return View(categories);
+        }
+
+
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -28,7 +38,7 @@ namespace ASM.Controllers
         {
             if (ModelState.IsValid)
             {
-                context.Categories.Add(category);
+                context.Add(category);
                 context.SaveChanges();
                 TempData["Message"] = "Add a new category successfully!!!!!!";
                 return RedirectToAction("index");
