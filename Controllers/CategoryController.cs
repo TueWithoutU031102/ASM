@@ -46,5 +46,38 @@ namespace ASM.Controllers
             else return View(category);
         }
 
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+                return NotFound();
+            else
+            {
+                var cate = context.Categories.Find(id);
+                context.Categories.Remove(cate);
+                context.SaveChanges();
+                return RedirectToAction("index");
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            Category cate = context.Categories.Single(c => c.Id == id);
+            return View(cate);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Category cate)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Entry(cate).State = EntityState.Modified;
+                context.SaveChanges();
+                TempData["Message"] = "Category Has Been Change Successfully!!!!!!";
+                return RedirectToAction("index");
+            }
+            else return View(cate);
+        }
+
     }
 }
