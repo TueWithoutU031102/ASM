@@ -20,9 +20,13 @@ namespace ASM.Controllers
             return View(context.Books.ToList());
         }
 
-        public IActionResult Detail(int id)
+        public IActionResult Detail(int? id)
         {
-            var book = context.Books.Include(c=>c.Category).FirstOrDefault(b => b.Id == id);
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var book = context.Books.Include(c => c.Category).FirstOrDefault(b => b.Id == id);
             return View(book);
         }
 
@@ -45,6 +49,8 @@ namespace ASM.Controllers
                 return RedirectToAction("index");
             }
             else return View(book);
+            
+            
         }
     }
 }

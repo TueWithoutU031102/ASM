@@ -18,7 +18,7 @@ namespace ASM.Models
         public string Publisher { get; set; }
         [Required]
         public string Author { get; set; }
-        [Url]
+        [Url(ErrorMessage ="Image must be url")]
         public string Image { get; set; }
         [Range(1, 9999, ErrorMessage = "Category can not be blank")]
         public int CategoryId { get; set; }
