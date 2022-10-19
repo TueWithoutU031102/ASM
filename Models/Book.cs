@@ -6,8 +6,10 @@ namespace ASM.Models
     public class Book
     {
         public int Id { get; set; }
+        [Required]
         [StringLength(100)]
         public string Title { get; set; }
+        [Required]
         [MinLength(10),MaxLength(10)]
         public string ISBN  { get; set; }
         [Required]
@@ -17,11 +19,13 @@ namespace ASM.Models
         public string Publisher { get; set; }
         [Required]
         public string Author { get; set; }
-        [Url(ErrorMessage ="Image must be url")]
+        [Required]
+        [Url(ErrorMessage = "Image must be url")]
         public string Image { get; set; }
-        [Range(1, 9999, ErrorMessage = "Category can not be blank")]
+        [Required(ErrorMessage = "Category can not be blank")]
+        [Range(1, 9999)]
         public int CategoryId { get; set; }
-       
+        
         public Category Category { get; set; }
     }
 }
