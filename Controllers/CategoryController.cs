@@ -38,7 +38,7 @@ namespace ASM.Controllers
         {
             if (ModelState.IsValid)
             {
-                context.Categories.Add(category);
+                context.Add(category);
                 context.SaveChanges();
                 TempData["Message"] = "Add a new category successfully!!!!!!";
                 return RedirectToAction("index");

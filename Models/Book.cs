@@ -8,8 +8,8 @@ namespace ASM.Models
         public int Id { get; set; }
         [StringLength(100)]
         public string Title { get; set; }
-        [Required]
-
+        [MinLength(10),MaxLength(10)]
+        [Display(Name = "International Standard Book Number")]
         public string ISBN  { get; set; }
         [Required]
         [DataType(DataType.Date)]
@@ -18,9 +18,8 @@ namespace ASM.Models
         public string Publisher { get; set; }
         [Required]
         public string Author { get; set; }
-        [Required]
+        [Url(ErrorMessage ="Image must be url")]
         public string Image { get; set; }
-        [Required]
         [Range(1, 9999, ErrorMessage = "Category can not be blank")]
         public int CategoryId { get; set; }
        
