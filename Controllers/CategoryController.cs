@@ -36,5 +36,24 @@ namespace ASM.Controllers
             else return View(category);
         }
 
+        [HttpGet]
+        public IActionResult Edit()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Categories.Add(category);
+                context.SaveChanges();
+                TempData["Message"] = "Add a new category successfully!!!!!!";
+                return RedirectToAction("index");
+            }
+            else return View(category);
+        }
+
     }
 }
