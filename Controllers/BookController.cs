@@ -20,7 +20,6 @@ namespace ASM.Controllers
         {
             return View(context.Books.ToList());
         }
-
         public IActionResult Detail(int? id)
         {
             if (id == null)
@@ -87,6 +86,25 @@ namespace ASM.Controllers
                 return RedirectToAction("index");
             }
             else return View(book);
+        }
+        [HttpPost]
+        public IActionResult Search(string keyword)
+        {
+            var books = context.Books.Where(b => b.Title.Contains(keyword)).ToList();
+            if (books.Count == 0)
+            {
+                TempData["Message"] = "No book found !";
+            }
+            return View("index", books);
+        }
+        public IActionResult SortNameAsc()
+        {
+            return View("Index",context.Books.OrderBy(b=>b.Title).ToList());
+        }
+
+        public IActionResult SortNameDesc()
+        {
+            return View("Index",context.Books.OrderByDescending(b=>b.Title).ToList());
         }
     }
 }

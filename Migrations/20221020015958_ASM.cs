@@ -52,7 +52,7 @@ namespace ASM.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryName = table.Column<string>(nullable: true)
+                    CategoryName = table.Column<string>(maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -171,8 +171,8 @@ namespace ASM.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(nullable: false),
-                    ISBN = table.Column<string>(nullable: false),
+                    Title = table.Column<string>(maxLength: 100, nullable: false),
+                    ISBN = table.Column<string>(maxLength: 10, nullable: false),
                     PublicationDate = table.Column<DateTime>(nullable: false),
                     Publisher = table.Column<string>(nullable: false),
                     Author = table.Column<string>(nullable: false),
@@ -189,6 +189,41 @@ namespace ASM.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "A", "3a8ff6b5-afbb-4af8-a81b-02da64a37343", "Administrator", "Administrator" },
+                    { "B", "a985461f-9ce6-4d6b-836a-5283b4920674", "Customer", "Customer" },
+                    { "C", "7ed930b1-9dd4-4700-9245-e5b581ada908", "Staff", "Staff" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { "1", 0, "9bbc65f0-8384-4c68-a3d4-f079296b9cc4", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEFMsDZXpWnAU1459GLxuHI5byvN7860rtFAGpsDLQFa1RCraLceTvluNe0E+QpAzfQ==", null, false, "73b761c3-7e84-41dc-b0e0-7d61bf250a4a", false, "admin@fpt.com" },
+                    { "2", 0, "c000c54d-4116-450a-9cdf-92bb9fe9a119", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEPLb0RMNb2kOsfEyNixDAdTQ2eYzOAyzNdX1kRUPQk1+yVLh4KDcnT+wVHWEITtoUg==", null, false, "cbbbf002-c002-4aa0-8c0f-49b1ff93cd7c", false, "customer@fpt.com" },
+                    { "3", 0, "86c29ff2-d067-4979-ba3f-81d91f2aaec8", "staff@fpt.com", true, false, null, null, "staff@fpt.com", "AQAAAAEAACcQAAAAELEzUEsXjCZbcCJdhclIDMCwAr3NQhH1jMto/txREnL10ko5WI3Ooj4fN6G2LbDkNQ==", null, false, "eb35058f-c6b3-4530-aa5e-2e719438ed9d", false, "staff@fpt.com" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "UserId", "RoleId" },
+                values: new object[] { "1", "A" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "UserId", "RoleId" },
+                values: new object[] { "2", "B" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "UserId", "RoleId" },
+                values: new object[] { "3", "C" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

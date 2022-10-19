@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASM.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221018113141_ASM")]
+    [Migration("20221020015958_ASM")]
     partial class ASM
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.29")
+                .HasAnnotation("ProductVersion", "3.1.30")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -37,7 +37,8 @@ namespace ASM.Migrations
 
                     b.Property<string>("ISBN")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(10)")
+                        .HasMaxLength(10);
 
                     b.Property<string>("Image")
                         .IsRequired()
@@ -52,7 +53,8 @@ namespace ASM.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.HasKey("Id");
 
@@ -69,7 +71,9 @@ namespace ASM.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CategoryName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.HasKey("Id");
 
@@ -101,6 +105,29 @@ namespace ASM.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "A",
+                            ConcurrencyStamp = "3a8ff6b5-afbb-4af8-a81b-02da64a37343",
+                            Name = "Administrator",
+                            NormalizedName = "Administrator"
+                        },
+                        new
+                        {
+                            Id = "B",
+                            ConcurrencyStamp = "a985461f-9ce6-4d6b-836a-5283b4920674",
+                            Name = "Customer",
+                            NormalizedName = "Customer"
+                        },
+                        new
+                        {
+                            Id = "C",
+                            ConcurrencyStamp = "7ed930b1-9dd4-4700-9245-e5b581ada908",
+                            Name = "Staff",
+                            NormalizedName = "Staff"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -190,6 +217,53 @@ namespace ASM.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "9bbc65f0-8384-4c68-a3d4-f079296b9cc4",
+                            Email = "admin@fpt.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "admin@fpt.com",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFMsDZXpWnAU1459GLxuHI5byvN7860rtFAGpsDLQFa1RCraLceTvluNe0E+QpAzfQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "73b761c3-7e84-41dc-b0e0-7d61bf250a4a",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@fpt.com"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "c000c54d-4116-450a-9cdf-92bb9fe9a119",
+                            Email = "customer@fpt.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "customer@fpt.com",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPLb0RMNb2kOsfEyNixDAdTQ2eYzOAyzNdX1kRUPQk1+yVLh4KDcnT+wVHWEITtoUg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "cbbbf002-c002-4aa0-8c0f-49b1ff93cd7c",
+                            TwoFactorEnabled = false,
+                            UserName = "customer@fpt.com"
+                        },
+                        new
+                        {
+                            Id = "3",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "86c29ff2-d067-4979-ba3f-81d91f2aaec8",
+                            Email = "staff@fpt.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedUserName = "staff@fpt.com",
+                            PasswordHash = "AQAAAAEAACcQAAAAELEzUEsXjCZbcCJdhclIDMCwAr3NQhH1jMto/txREnL10ko5WI3Ooj4fN6G2LbDkNQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "eb35058f-c6b3-4530-aa5e-2e719438ed9d",
+                            TwoFactorEnabled = false,
+                            UserName = "staff@fpt.com"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -253,6 +327,23 @@ namespace ASM.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "1",
+                            RoleId = "A"
+                        },
+                        new
+                        {
+                            UserId = "2",
+                            RoleId = "B"
+                        },
+                        new
+                        {
+                            UserId = "3",
+                            RoleId = "C"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
