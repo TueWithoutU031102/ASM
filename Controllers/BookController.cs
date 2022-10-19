@@ -14,13 +14,13 @@ namespace ASM.Controllers
             this.context = context;
         }
 
-        [Route("/")]
+        [Route("/Book")]
         public IActionResult Index()
         {
             return View(context.Books.ToList());
         }
-
-        public IActionResult Detail(int? id)
+        
+        public IActionResult Detail(int id)
         {
             if (id == null)
             {
@@ -46,6 +46,39 @@ namespace ASM.Controllers
                 context.Books.Add(book);
                 context.SaveChanges();
                 TempData["Message"] = "Add a new book successfully!!!!!!";
+                return RedirectToAction("index");
+            }
+            else return View(book);
+        }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+                return NotFound();
+            else
+            {
+                var book = context.Books.Find(id);
+                context.Books.Remove(book);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            Book b = context.Books.Single(x => x.Id == id);
+            return View(b);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Book book)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Entry(book).State = EntityState.Modified;
+                context.SaveChanges();
+                TempData["Message"] = "Book Has Been Change Successfully!!!!!!";
                 return RedirectToAction("index");
             }
             else return View(book);
