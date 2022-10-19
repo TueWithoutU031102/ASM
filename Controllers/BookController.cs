@@ -20,7 +20,7 @@ namespace ASM.Controllers
             return View(context.Books.ToList());
         }
         
-        public IActionResult Detail(int id)
+        public IActionResult Detail(int? id)
         {
             if (id == null)
             {
