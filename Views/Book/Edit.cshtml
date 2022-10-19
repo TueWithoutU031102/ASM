@@ -53,3 +53,8 @@
         <a class="btn btn-warning" asp-action="Index">Cancel</a>
     </div>
 </form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
