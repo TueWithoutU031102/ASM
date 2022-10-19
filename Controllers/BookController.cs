@@ -49,8 +49,6 @@ namespace ASM.Controllers
                 return RedirectToAction("index");
             }
             else return View(book);
-            
-            
         }
     }
 }

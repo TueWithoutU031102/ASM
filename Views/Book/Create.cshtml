@@ -1,41 +1,57 @@
 ﻿@model ASM.Models.Book;
-<form method="post" asp-controller="Book" asp-action="Create">
-    <h2>Add a new book</h2>
+<form class="all-form" method="post" asp-controller="Book" asp-action="Create">
+    <h3 style="text-align: center">Add a new book</h3>
     <div class="form-group">
-        <label class="h4 text-success">International Standard Book Number</label>
-        <input class="form-control" asp-for="ISBN" />
-        <span class="text-danger" asp-validation-for="ISBN"></span>
+        <label class="h6 text-success">Book ISBN</label>
+        <input class="form-control" asp-for="@Model.ISBN" />
+        <span class="text-danger" asp-validation-for="@Model.ISBN"></span>
     </div>
     <div class="form-group">
-        <label class="h4 text-success">Book Title</label>
-        <input class="form-control" asp-for="Title" />
-        <span class="text-danger" asp-validation-for="Title"></span>
+        <label class="h6 text-success">Book Title</label>
+        <input class="form-control" asp-for="@Model.Title" />
+        <span class="text-danger" asp-validation-for="@Model.Title"></span>
     </div>
     <div class="form-group">
-        <label class="h4 text-success" asp-for="PublicationDate"></label>
-        <input class="form-control" asp-for="PublicationDate" />
-        <span class="text-danger" asp-validation-for="PublicationDate"></span>
+        <label class="h6 text-success" asp-for="@Model.PublicationDate"></label>
+        <input class="form-control" asp-for="@Model.PublicationDate" />
+        <span class="text-danger" asp-validation-for="@Model.PublicationDate"></span>
     </div>
     <div class="form-group">
-        <label class="h4 text-success">Book Publisher</label>
-        <input class="form-control" asp-for="Publisher" />
-        <span class="text-danger" asp-validation-for="Publisher"></span>
+        <label class="h6 text-success">Book Publisher</label>
+        <input class="form-control" asp-for="@Model.Publisher" />
+        <span class="text-danger" asp-validation-for="@Model.Publisher"></span>
     </div>
     <div class="form-group">
-        <label class="h4 text-success">Category</label>
-        
+        <label class="h6 text-success">Category</label>
+        <select class="list-group-item" asp-for="CategoryId">
+            <option value="0">Select an category</option>
+            @foreach (var category in ViewBag.Categories)
+            {
+                <option value="@category.Id">
+                    @category.CategoryName
+                </option>
+            }
+        </select>
     </div>
     <div class="form-group">
-        <label class="h4 text-success">Book Author</label>
-        <input class="form-control" asp-for="Author" />
-        <span class="text-danger" asp-validation-for="Author"></span>
+        <label class="h6 text-success">Book Author</label>
+        <input class="form-control" asp-for="@Model.Author" />
+        <span class="text-danger" asp-validation-for="@Model.Author"></span>
     </div>
-    <div class="form-group">
-        <label class="h4 text-success">Book Image</label>
-        <input class="form-control" asp-for="Image" />
-        <span class="text-danger" asp-validation-for="Image"></span>
+    <div class="create-group">
+        <label class="h6 text-success">Book Image</label>
+        <input class="form-control" asp-for="@Model.Image" />
+        <span class="text-danger" asp-validation-for="@Model.Image"></span>
     </div>
-    <div class="form-group">
+    <br />
         <input class="btn btn-primary" type="submit" value="Create" />
+
     </div>
 </form>
+<a class="btn btn-warning">Cancel</a>
+</form>
+@*@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+   }*@
