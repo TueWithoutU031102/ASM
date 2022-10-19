@@ -20,7 +20,7 @@ namespace ASM.Controllers
             return View(context.Books.ToList());
         }
         
-        public IActionResult Detail(int id)
+        public IActionResult Detail(int? id)
         {
             if (id == null)
             {
@@ -85,26 +85,6 @@ namespace ASM.Controllers
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
-        }
-
-        [HttpGet]
-        public IActionResult Edit(int? id)
-        {
-            Book b = context.Books.Single(x => x.Id == id);
-            return View(b);
-        }
-
-        [HttpPost]
-        public IActionResult Edit(Book book)
-        {
-            if (ModelState.IsValid)
-            {
-                context.Entry(book).State = EntityState.Modified;
-                context.SaveChanges();
-                TempData["Message"] = "Book Has Been Change Successfully!!!!!!";
-                return RedirectToAction("index");
-            }
-            else return View(book);
         }
     }
 }

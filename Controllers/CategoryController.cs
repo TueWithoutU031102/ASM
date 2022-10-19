@@ -59,11 +59,10 @@ namespace ASM.Controllers
             {
                 context.Categories.Add(category);
                 context.SaveChanges();
-                TempData["Message"] = "Add a new category successfully!!!!!!";
+                TempData["Message"] = "Edit Category successfully!!!!!!";
                 return RedirectToAction("index");
             }
             else return View(category);
         }
-
     }
 }
