@@ -9,7 +9,6 @@ namespace ASM.Models
         [StringLength(100)]
         public string Title { get; set; }
         [MinLength(10),MaxLength(10)]
-        [Display(Name = "International Standard Book Number")]
         public string ISBN  { get; set; }
         [Required]
         [DataType(DataType.Date)]
