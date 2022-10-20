@@ -15,11 +15,12 @@ namespace ASM.Controllers
         }
 
         [Route("/Book")]
+        [HttpGet]
         public IActionResult Index()
         {
             return View(context.Books.ToList());
         }
-        
+
         public IActionResult Detail(int? id)
         {
             if (id == null)
@@ -38,27 +39,6 @@ namespace ASM.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult Edit()
-        {
-            var categories = context.Categories.ToList();
-            ViewBag.Categories = categories;
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Edit(Book book)
-        {
-            if (ModelState.IsValid)
-            {
-                context.Books.Update(book);
-                context.SaveChanges();
-                TempData["Message"] = "Book successfully edited";
-                return RedirectToAction("index");
-            }
-            else return View(book);
-        }
-
         [HttpPost]
         public IActionResult Create(Book book)
         {
@@ -70,8 +50,6 @@ namespace ASM.Controllers
                 return RedirectToAction("index");
             }
             else return View(book);
-            
-            
         }
 
         public IActionResult Delete(int? id)
@@ -85,6 +63,30 @@ namespace ASM.Controllers
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            if (id == null) return NotFound();
+            var book = context.Books.Find(id);
+            if (book == null) return NotFound();
+            var categories = context.Categories.ToList();
+            ViewBag.Categories = categories;
+            return View(book);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Book book)
+        {
+            if (ModelState.IsValid)
+            {
+                context.Entry(book).State = EntityState.Modified;
+                context.SaveChanges();
+                TempData["Message"] = "Book Has Been Change Successfully!!!!!!";
+                return RedirectToAction("index");
+            }
+            else return View(book);
         }
     }
 }

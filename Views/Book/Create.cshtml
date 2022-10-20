@@ -44,6 +44,11 @@
         <span class="text-danger" asp-validation-for="@Model.Image"></span>
     </div>
     <br />
-        <input class="btn btn-primary" type="submit" value="Create" />
-        <a class="btn btn-warning">Cancel</a>
+    <input class="btn btn-primary" type="submit" value="Create" />
+    <a class="btn btn-warning" asp-action="index">Cancel</a>
 </form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+   }

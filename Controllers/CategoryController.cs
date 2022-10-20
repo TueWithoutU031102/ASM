@@ -46,23 +46,38 @@ namespace ASM.Controllers
             else return View(category);
         }
 
-        [HttpGet]
-        public IActionResult Edit()
+        public IActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+                return NotFound();
+            else
+            {
+                var cate = context.Categories.Find(id);
+                context.Categories.Remove(cate);
+                context.SaveChanges();
+                return RedirectToAction("index");
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            Category cate = context.Categories.Single(c => c.Id == id);
+            return View(cate);
         }
 
         [HttpPost]
-        public IActionResult Edit(Category category)
+        public IActionResult Edit(Category cate)
         {
             if (ModelState.IsValid)
             {
-                context.Categories.Add(category);
+                context.Entry(cate).State = EntityState.Modified;
                 context.SaveChanges();
-                TempData["Message"] = "Edit Category successfully!!!!!!";
+                TempData["Message"] = "Category Has Been Change Successfully!!!!!!";
                 return RedirectToAction("index");
             }
-            else return View(category);
+            else return View(cate);
         }
+
     }
 }

@@ -10,5 +10,9 @@
     <div class="form-group">
         <input class="btn btn-primary" type="submit" value="Create" />
     </div>
-
 </form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

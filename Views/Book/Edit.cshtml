@@ -1,46 +1,60 @@
 ﻿@model ASM.Models.Book
 
-                <form class="all-form" method="post" asp-controller="Book" asp-action="Edit">
+<form class="all-form" method="post" asp-controller="Book" asp-action="Edit">
     <h3 style="text-align: center">Edit A Book</h3>
     <div class="form-group">
-                <label class="h6 text-success">Book ISBN</label>
-                <input asp-for="ISBN" class="form-control" />
-                <span asp-validation-for="ISBN" class="text-danger"></span>
-            </div>
-    <div class="form-group">
-                <label class="h6 text-success">Title</label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-    <div class="form-group">
-                <label class="h6 text-success">Publication Date</label>
-                <input asp-for="PublicationDate" class="form-control" />
-                <span asp-validation-for="PublicationDate" class="text-danger"></span>
-            </div>
-    <div class="form-group">
-                <label class="h6 text-success">Publisher</label>
-                <input asp-for="Publisher" class="form-control" />
-                <span asp-validation-for="Publisher" class="text-danger"></span>
-            </div>
-    <div class="form-group">
-        <label class="h6 text-success">Category</label>
-        //lưu trữ category đã chọn và chọn đc những cái khác
+        <label class="h6 text-success">Book ISBN</label>
+        <input asp-for="ISBN" class="form-control" />
+        <span asp-validation-for="ISBN" class="text-danger"></span>
     </div>
     <div class="form-group">
-                <label class="h6 text-success">Author</label>
-                <input asp-for="Author" class="form-control" />
-                <span asp-validation-for="Author" class="text-danger"></span>
-            </div>
+        <label class="h6 text-success">Title</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
     <div class="form-group">
-                <label class="h6 text-success">Book Image</label>
-                <input asp-for="Image" class="form-control" />
-                <span asp-validation-for="Image" class="text-danger"></span>
-            </div>
+        <label class="h6 text-success">Publication Date</label>
+        <input asp-for="PublicationDate" class="form-control" />
+        <span asp-validation-for="PublicationDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="h6 text-success">Publisher</label>
+        <input asp-for="Publisher" class="form-control" />
+        <span asp-validation-for="Publisher" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="h6 text-success">Category</label>
+        <select class="list-group-item" asp-for="CategoryId">
+            <option>Select an category</option>
+            @foreach (var category in ViewBag.Categories)
+            {
+                <option value="@category.Id">
+                    @category.CategoryName
+                </option>
+            }
+        </select>
+        <span class="text text-danger" asp-validation-for="CategoryId"></span>
+    </div>
+    <div class="form-group">
+        <label class="h6 text-success">Author</label>
+        <input asp-for="Author" class="form-control" />
+        <span asp-validation-for="Author" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="h6 text-success">Book Image</label>
+        <input asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
     <br />
-        <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        <div>
-    <a class="btn btn-warning" asp-action="Index">Cancel</a>
-</div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+    <div>
+        <a class="btn btn-warning" asp-action="Index">Cancel</a>
+    </div>
 </form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
