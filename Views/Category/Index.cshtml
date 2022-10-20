@@ -2,9 +2,9 @@
 <div class="container col-md-8 text-center mt-3">
     <h1 class="text text-danger">Category List</h1>
     <h4 class="text text-info">Total categories: @ViewData["total"]</h4>
-    <form action="" class="form-inline">
+    <form method="post" asp-controller="Category" asp-action="SearchCaetgory" class="form-inline">
         <div class="form-group">
-            <input class="search_bar" placeholder="Search A Category" style="transform: translateX(200%) translateY(100%)" />
+            <input class="search_bar" name="keyword" placeholder="Search A Category" style="transform: translateX(200%) translateY(100%)" />
         </div>
     </form>
     <a class="btn btn-primary" asp-action="Create">Create</a>

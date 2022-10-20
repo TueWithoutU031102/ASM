@@ -190,14 +190,36 @@ namespace ASM.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Customer = table.Column<string>(nullable: true),
+                    OrderDate = table.Column<DateTime>(nullable: false),
+                    OrderQuangtity = table.Column<int>(nullable: false),
+                    BookID = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Orders_Books_BookID",
+                        column: x => x.BookID,
+                        principalTable: "Books",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "3a8ff6b5-afbb-4af8-a81b-02da64a37343", "Administrator", "Administrator" },
-                    { "B", "a985461f-9ce6-4d6b-836a-5283b4920674", "Customer", "Customer" },
-                    { "C", "7ed930b1-9dd4-4700-9245-e5b581ada908", "Staff", "Staff" }
+                    { "A", "d933c599-83e6-49bc-85ec-089d61c91ade", "Administrator", "Administrator" },
+                    { "B", "0a8f316f-d1b7-458a-9fb8-c3da0f0c1cf7", "Customer", "Customer" },
+                    { "C", "3b08677e-ec9f-41e6-86fd-bb1fe90406f2", "Staff", "Staff" }
                 });
 
             migrationBuilder.InsertData(
@@ -205,9 +227,9 @@ namespace ASM.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "9bbc65f0-8384-4c68-a3d4-f079296b9cc4", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEFMsDZXpWnAU1459GLxuHI5byvN7860rtFAGpsDLQFa1RCraLceTvluNe0E+QpAzfQ==", null, false, "73b761c3-7e84-41dc-b0e0-7d61bf250a4a", false, "admin@fpt.com" },
-                    { "2", 0, "c000c54d-4116-450a-9cdf-92bb9fe9a119", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEPLb0RMNb2kOsfEyNixDAdTQ2eYzOAyzNdX1kRUPQk1+yVLh4KDcnT+wVHWEITtoUg==", null, false, "cbbbf002-c002-4aa0-8c0f-49b1ff93cd7c", false, "customer@fpt.com" },
-                    { "3", 0, "86c29ff2-d067-4979-ba3f-81d91f2aaec8", "staff@fpt.com", true, false, null, null, "staff@fpt.com", "AQAAAAEAACcQAAAAELEzUEsXjCZbcCJdhclIDMCwAr3NQhH1jMto/txREnL10ko5WI3Ooj4fN6G2LbDkNQ==", null, false, "eb35058f-c6b3-4530-aa5e-2e719438ed9d", false, "staff@fpt.com" }
+                    { "1", 0, "352e0641-c786-4e8f-a6b9-21ca5909a8eb", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEOGmOjMi6+nNFpEDsCLNoi4azcKlMOZsoaQ4bOyiaG5xPDprX8iZU5jBFmCyFN9HOA==", null, false, "d9ae9703-cd86-4f8e-9555-2952793e6273", false, "admin@fpt.com" },
+                    { "2", 0, "2bd1c6ef-63b4-4484-94f8-ef7396edeb1b", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEL6eeqWkBEI9JEEyRPzNUf2jww2zxmVgEO0FyXzBR1saBVKLiYw5/yezkgKm16vXmg==", null, false, "6c65c7db-9644-41ae-9f45-e78ee573690c", false, "customer@fpt.com" },
+                    { "3", 0, "c565b410-43cc-4ed3-a0ae-94eb05171728", "staff@fpt.com", true, false, null, null, "staff@fpt.com", "AQAAAAEAACcQAAAAEHyD+AVYM+ZRP+LRBYFkKDFIBNY3fztM7OCfEPY1BcxKrbCEWlh/NvoreqH01B0KWA==", null, false, "23ba8c47-1ffe-4630-95c1-2f6e2ffdadfd", false, "staff@fpt.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -268,6 +290,11 @@ namespace ASM.Migrations
                 name: "IX_Books_CategoryId",
                 table: "Books",
                 column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_BookID",
+                table: "Orders",
+                column: "BookID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -288,13 +315,16 @@ namespace ASM.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Books");
+                name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Books");
 
             migrationBuilder.DropTable(
                 name: "Categories");
