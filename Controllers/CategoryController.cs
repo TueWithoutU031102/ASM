@@ -34,6 +34,17 @@ namespace ASM.Controllers
         }
 
         [HttpPost]
+        public IActionResult Search(string keyword)
+        {
+            var category = context.Categories.Where(c => c.CategoryName.Contains(keyword)).ToList();
+            if (category.Count == 0)
+            {
+                TempData["Message"] = "No book with this name can be found !";
+            }
+            return View("Index", category);
+        }
+
+        [HttpPost]
         public IActionResult Create(Category category)
         {
             if (ModelState.IsValid)

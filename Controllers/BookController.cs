@@ -88,5 +88,20 @@ namespace ASM.Controllers
             }
             else return View(book);
         }
+        [HttpGet]
+
+
+        [HttpPost]
+        public IActionResult Search(string keyword)
+        {
+            var book = context.Books.Where(b => b.Title.Contains(keyword)).ToList();
+            if (book.Count == 0)
+            {
+                TempData["Message"] = "No book with this name can be found !";
+            }
+            return View(book);
+        }
+
+
     }
 }
