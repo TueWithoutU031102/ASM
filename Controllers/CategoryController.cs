@@ -90,16 +90,16 @@ namespace ASM.Controllers
             else return View(cate);
         }
 
-        [HttpPost]
-        public IActionResult Search(string keyword)
-        {
-            var categories = context.Categories.Where(c => c.CategoryName.Contains(keyword)).ToList();
-            if (categories.Count == 0)
-            {
-                TempData["Message"] = "No category found !";
-            }
-            return View("index", categories);
-        }
+       //[HttpPost]
+       // public IActionResult Search(string keyword)
+       //{
+       //var categories = context.Categories.Where(c => c.CategoryName.Contains(keyword)).ToList();
+       //if (categories.Count == 0)
+       //{
+       //   TempData["Message"] = "No category found !";
+       // }
+       //   return View("index", categories);
+       // }
 
         [HttpPost]
         public IActionResult SearchBook(string keyword)
