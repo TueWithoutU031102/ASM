@@ -9,52 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    @{
-        var login = true;
-        if (login == false)
-        {
-            <nav>
-                <a asp-area="" asp-controller="Home" asp-action="Index" style="width: 60%">ASM</a>
-                <form>
-                    <input class="search_bar" placeholder="Search Something" style="width: 200px; padding-right: 20px; padding-left: 20px" />
-                </form>
-            </nav>
-            <nav class="nav2">
-                <div class="nav-link" id="navlink">
-                    <ul>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Index">HOME</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="About">ABOUT</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Privacy">BOOKS</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">CONTACT</a></li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </nav>
-        }
-        else
-        {
-            <nav>
-
-                <a asp-area="" asp-controller="Home" asp-action="Index" style="width: 60%">ASM</a>
-                <form>
-                    <input class="search_bar" placeholder="Search Something" style="width: 200px; padding-right: 20px; padding-left: 20px" />
-                </form>
-            </nav>
-            <nav class="nav2">
-
-                <div class="nav-link" id="navlink">
-                    <ul>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Index">HOME</a></li>
-                        <li><a asp-area="" asp-controller="Book" asp-action="Index">BOOKS</a></li>
-                        <li><a asp-area="" asp-controller="Category" asp-action="Index">CATEGORY</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">CUSTOMER</a></li>
-                        <li><a asp-area="" asp-controller="Book" asp-action="Index">USER</a></li>
-                    </ul>
-                </div>
-                <partial name="_LoginPartial" />
-            </nav>
-        }
-    }
+    <partial name="_LoginPartial" />
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
