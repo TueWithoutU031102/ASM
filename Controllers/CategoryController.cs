@@ -90,5 +90,46 @@ namespace ASM.Controllers
             else return View(cate);
         }
 
+        [HttpPost]
+        public IActionResult Search(string keyword)
+        {
+            var categories = context.Categories.Where(c => c.CategoryName.Contains(keyword)).ToList();
+            if (categories.Count == 0)
+            {
+                TempData["Message"] = "No category found !";
+            }
+            return View("index", categories);
+        }
+
+        [HttpPost]
+        public IActionResult SearchBook(string keyword)
+        {
+            var books = context.Books.Where(b => b.Title.Contains(keyword)).ToList();
+            if (books.Count == 0)
+            {
+                TempData["Message"] = "No book found !";
+            }
+            return View("detail", books);
+        }
+
+        [HttpPost]
+        public IActionResult SearchCategory(string keyword)
+        {
+            var categories = context.Categories.Where(c => c.CategoryName.Contains(keyword)).ToList();
+            if (categories.Count == 0)
+            {
+                TempData["Message"] = "No categories found !";
+            }
+            return View("detail", categories);
+        }
+        public IActionResult SortNameAsc()
+        {
+            return View("index", context.Categories.OrderBy(c => c.CategoryName).ToList());
+        }
+
+        public IActionResult SortNameDesc()
+        {
+            return View("index", context.Categories.OrderByDescending(c => c.CategoryName).ToList());
+        }
     }
 }

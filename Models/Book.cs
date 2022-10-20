@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace ASM.Models
@@ -27,5 +28,7 @@ namespace ASM.Models
         public int CategoryId { get; set; }
         
         public Category Category { get; set; }
+
+        public ICollection<Order> Orders { get; set; }
     }
 }
