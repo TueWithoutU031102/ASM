@@ -2,25 +2,54 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-<ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
-    <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+    <nav>
+        <a asp-area="" asp-controller="Home" asp-action="Index" style="width: 60%">ASM</a>
+        <form>
+            <input class="search_bar" placeholder="Search Something" style="width: 200px; padding-right: 20px; padding-left: 20px" />
         </form>
-    </li>
+    </nav>
+    <nav class="nav2">
+        <div class="nav-link" id="navlink">
+            <ul>
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">HOME</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Privacy">BOOKS</a></li>
+                <li><a asp-area="" asp-controller="Category" asp-action="Index">CATEGORY</a></li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">HELLO @User.Identity.Name!</a>
+                </li>
+                <li class="nav-item">
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button type="submit" class="nav-link btn btn-link text-dark">LOGOUT</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
 }
 else
 {
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
+    <nav>
+
+        <a asp-area="" asp-controller="Home" asp-action="Index" style="width: 60%">ASM</a>
+        <form>
+            <input class="search_bar" placeholder="Search Something" style="width: 200px; padding-right: 20px; padding-left: 20px" />
+        </form>
+    </nav>
+    <nav class="nav2">
+
+        <div class="nav-link" id="navlink">
+            <ul>
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">HOME</a></li>
+                <li><a asp-area="" asp-controller="Book" asp-action="Index">BOOKS</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="About">ABOUT</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Contact">CONTACT</a></li>
+                @*                <li><a asp-area="" asp-controller="Home" asp-action="Contact">CUSTOMER</a></li>
+            <li><a asp-area="" asp-controller="Book" asp-action="Index">USER</a></li>*@
+                <li><a text-dark" asp-area="Identity" asp-page="/Account/Register">REGISTER</a></li>
+                <li><a text-dark" asp-area="Identity" asp-page="/Account/Login">LOGIN</a></li>
+            </ul>
+        </div>
+    </nav>
 }
-</ul>

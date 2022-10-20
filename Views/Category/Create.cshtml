@@ -1,6 +1,11 @@
 ﻿@model ASM.Models.Category;
 @if (User.Identity.IsAuthenticated && User.IsInRole("Staff"))
 {
+    <h1>Bạn không có quyền hoặc hãy đăng nhập trước khi truy cập trang này.</h1>
+    <a asp-area="" asp-controller="Home" asp-action="Index">Back to home page</a>
+}
+else
+{
     <form class="all-form" method="post" asp-controller="Category" asp-action="Create">
         <h3 style="text-align: center">Add a new Category</h3>
         <div class="form-group">
