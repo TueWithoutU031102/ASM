@@ -9,6 +9,7 @@ namespace ASM.Models
         [Required]
         [StringLength(100)]
         public string CategoryName { get; set; }
+        public string CategoryDesription { get; set; }
         public ICollection<Book> Books { get; set; }
     }
 }

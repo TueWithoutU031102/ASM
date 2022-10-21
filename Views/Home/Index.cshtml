@@ -1,4 +1,40 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
 }
+@model ICollection<ASM.Models.Book>
 
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1> Welcome to GEC Pros's bookstore</h1>
+        <p class="lead text-muted">
+            This is where it gets complicated
+        </p>
+        <p>
+            <a href="#" class="btn btn-primary my-2">Search for Book</a>
+        </p>
+    </div>
+
+</section>
+
+@foreach (var item in Model)
+{
+    <div class="py-5 bg-light">
+        <div class="container">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="250"></svg>
+                    <div class="card-body">
+                        <p class="card-text">Cai nay se dung de hien thi phan mo ta cua quyen sach(THEM PHAN MO TA DI MAY THANG L)</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-sm btn-outline-danger">Chi tiet san pham</a>
+                            </div>
+                            <small class="text-muted">Ten Tac Gia</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
