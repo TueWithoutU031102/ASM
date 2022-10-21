@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASM.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221020153222_ASM")]
+    [Migration("20221021085604_ASM")]
     partial class ASM
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -136,21 +136,21 @@ namespace ASM.Migrations
                         new
                         {
                             Id = "A",
-                            ConcurrencyStamp = "d933c599-83e6-49bc-85ec-089d61c91ade",
+                            ConcurrencyStamp = "d5b65743-266b-4cb9-95ee-31ff333591ed",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         },
                         new
                         {
                             Id = "B",
-                            ConcurrencyStamp = "0a8f316f-d1b7-458a-9fb8-c3da0f0c1cf7",
+                            ConcurrencyStamp = "a89d2d71-7e58-46d5-bd34-fec66a9c139e",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         },
                         new
                         {
                             Id = "C",
-                            ConcurrencyStamp = "3b08677e-ec9f-41e6-86fd-bb1fe90406f2",
+                            ConcurrencyStamp = "89d834ec-1d2f-495f-8197-416b2a5b8426",
                             Name = "Staff",
                             NormalizedName = "Staff"
                         });
@@ -249,14 +249,14 @@ namespace ASM.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "352e0641-c786-4e8f-a6b9-21ca5909a8eb",
+                            ConcurrencyStamp = "00e52405-82d8-4607-ad65-0872832000e3",
                             Email = "admin@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "admin@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOGmOjMi6+nNFpEDsCLNoi4azcKlMOZsoaQ4bOyiaG5xPDprX8iZU5jBFmCyFN9HOA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEDDtJ9jxgdYOa93s0RhyWhaeHL/sHk7QgHEJlF8O7JHgCmW0dLUj9FTNoO/WlbFxqw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d9ae9703-cd86-4f8e-9555-2952793e6273",
+                            SecurityStamp = "7e1a5632-2b89-40ce-9190-6bbac827094f",
                             TwoFactorEnabled = false,
                             UserName = "admin@fpt.com"
                         },
@@ -264,14 +264,14 @@ namespace ASM.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2bd1c6ef-63b4-4484-94f8-ef7396edeb1b",
+                            ConcurrencyStamp = "f8829e18-9c1d-441f-99e2-5d8fc32de298",
                             Email = "customer@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "customer@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEL6eeqWkBEI9JEEyRPzNUf2jww2zxmVgEO0FyXzBR1saBVKLiYw5/yezkgKm16vXmg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFLV4Vnnn5no4RmWi2wiZ7+DgOUkflaVMyzNNj2ejeIbZ6LlJpwlMl7wEcyIc+H6nA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6c65c7db-9644-41ae-9f45-e78ee573690c",
+                            SecurityStamp = "b761b9d0-5429-415d-acee-09e74a97d57c",
                             TwoFactorEnabled = false,
                             UserName = "customer@fpt.com"
                         },
@@ -279,14 +279,14 @@ namespace ASM.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c565b410-43cc-4ed3-a0ae-94eb05171728",
+                            ConcurrencyStamp = "1f8828a6-c15a-4399-88fc-75a5d4eee7e5",
                             Email = "staff@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "staff@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHyD+AVYM+ZRP+LRBYFkKDFIBNY3fztM7OCfEPY1BcxKrbCEWlh/NvoreqH01B0KWA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKCcdu7AlGvpSVLA/HLsJO/nypTtczsdmcx0d5me9MVh6Nl30bKNKZLhvZjbemkZMg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "23ba8c47-1ffe-4630-95c1-2f6e2ffdadfd",
+                            SecurityStamp = "f19d6b7f-ae46-415d-988d-06762010eca4",
                             TwoFactorEnabled = false,
                             UserName = "staff@fpt.com"
                         });
