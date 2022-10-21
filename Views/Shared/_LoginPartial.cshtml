@@ -16,8 +16,17 @@
                 <li><a asp-area="" asp-controller="Home" asp-action="Index">HOME</a></li>
                 <li><a asp-area="" asp-controller="Book" asp-action="Index">BOOKS</a></li>
                 <li><a asp-area="" asp-controller="Category" asp-action="Index">CATEGORY</a></li>
-                <li>
-                    <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">ACCOUNT</a>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
+                {
+                    <li><a asp-area="Admin" asp-page="/Role/Index">Manage</a> </li>
+                }
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">HELLO @User.Identity.Name!</a>
+                </li>
+                <li class="nav-item">
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button type="submit" class="nav-link btn btn-link text-dark">LOGOUT</button>
+                    </form>
                 </li>
             </ul>
         </div>
@@ -40,8 +49,7 @@ else
                 <li><a asp-area="" asp-controller="Book" asp-action="Index">BOOKS</a></li>
                 <li><a asp-area="" asp-controller="Home" asp-action="About">ABOUT</a></li>
                 <li><a asp-area="" asp-controller="Home" asp-action="Contact">CONTACT</a></li>
-                @*                <li><a asp-area="" asp-controller="Home" asp-action="Contact">CUSTOMER</a></li>
-            <li><a asp-area="" asp-controller="Book" asp-action="Index">USER</a></li>*@
+                <li><a text-dark" asp-area="Identity" asp-page="/Account/Register">REGISTER</a></li>
                 <li><a text-dark" asp-area="Identity" asp-page="/Account/Login">LOGIN</a></li>
             </ul>
         </div>
