@@ -90,17 +90,6 @@ namespace ASM.Controllers
             else return View(cate);
         }
 
-       //[HttpPost]
-       // public IActionResult Search(string keyword)
-       //{
-       //var categories = context.Categories.Where(c => c.CategoryName.Contains(keyword)).ToList();
-       //if (categories.Count == 0)
-       //{
-       //   TempData["Message"] = "No category found !";
-       // }
-       //   return View("index", categories);
-       // }
-
         [HttpPost]
         public IActionResult SearchBook(string keyword)
         {
@@ -120,7 +109,7 @@ namespace ASM.Controllers
             {
                 TempData["Message"] = "No categories found !";
             }
-            return View("detail", categories);
+            return View("index", categories);
         }
         public IActionResult SortNameAsc()
         {
