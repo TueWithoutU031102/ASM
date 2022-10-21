@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace ASM.Controllers
 {
-    public class HomeController1 : Controller
+    public class Order : Controller
     {
 
         public IActionResult Index()
