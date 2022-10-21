@@ -29,10 +29,7 @@ namespace ASM.Areas.Admin.Pages.Role
         }
         public async Task<IActionResult> OnPostAsysc()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            if (!ModelState.IsValid) return Page();
             var newRole = new IdentityRole(Input.Name);
             var result = await roleManager.CreateAsync(newRole);
             if (result.Succeeded)
