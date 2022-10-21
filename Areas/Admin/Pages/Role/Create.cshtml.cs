@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.VisualBasic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,25 +24,22 @@ namespace ASM.Areas.Admin.Pages.Role
             public string Name { get; set; }
         }
         [BindProperty]
-        public InputModel Input { get; set; }
+        public InputModel Input { set; get; }
         public void OnGet()
         {
         }
         public async Task<IActionResult> OnPostAsysc()
         {
-            if (!ModelState.IsValid) return Page();
+
             var newRole = new IdentityRole(Input.Name);
             var result = await roleManager.CreateAsync(newRole);
+
             if (result.Succeeded)
             {
-                StatusMessage = $"Create successful new role: {Input.Name}";
-                return RedirectToPage("./Index");
+                StatusMessage = $"Create a new role {Input.Name} successfully!!!";
+                return RedirectToPage("/admin/roles");
             }
-            else
-            {
-                result.Errors.ToList().ForEach(error =>
-            { ModelState.AddModelError(string.Empty, error.Description); });
-            }
+            else result.Errors.ToList().ForEach(error => ModelState.AddModelError(string.Empty, error.Description));
             return Page();
         }
     }

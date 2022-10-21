@@ -1,6 +1,6 @@
 ﻿@page "/admin/addroles"
 @model ASM.Areas.Admin.Pages.Role.CreateModel
-@if (!User.Identity.IsAuthenticated || User.IsInRole("Administrator") == false)
+@if (!User.Identity.IsAuthenticated || User.IsInRole("Customer"))
 {
     <h1>Bạn không có quyền hoặc hãy đăng nhập trước khi truy cập trang này.</h1>
     <a asp-area="" asp-controller="Home" asp-action="Index">Back to home page</a>
@@ -11,8 +11,8 @@ else
     <h2>@ViewData["Title"]</h2>
     <partial name="_StatusMessage" model="@Model.StatusMessage" />
     <hr />
-
-    <form method="post" class="all-form">
+    <div class="all-form">
+    <form method="post">
         <h3 style="text-align: center">Add a new role</h3>
         <div class="form-group">
             <label asp-for="Input.Name" class="h4 text-success"></label>
@@ -23,6 +23,7 @@ else
             <input type="submit" value="Create" class="btn btn-primary" />
         </div>
     </form>
+    </div>
 
     @section Scripts {
     @{
