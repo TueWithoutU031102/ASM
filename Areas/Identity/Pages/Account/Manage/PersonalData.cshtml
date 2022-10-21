@@ -5,22 +5,64 @@
     ViewData["ActivePage"] = ManageNavPages.PersonalData;
 }
 
-<h4>@ViewData["Title"]</h4>
+<style>
+    .acc-header {
+        transform: translateX(5%);
+    }
 
-<div class="row">
-    <div class="col-md-6">
-        <p>Your account contains personal data that you have given us. This page allows you to download or delete that data.</p>
-        <p>
-            <strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>
-        </p>
-        <form id="download-data" asp-page="DownloadPersonalData" method="post" class="form-group">
-            <button class="btn btn-primary" type="submit">Download</button>
+    .acc-h1 {
+        margin-bottom: 40px;
+    }
+
+    .acc-form {
+        width: 500px;
+        border: 2px solid #ccc;
+        padding: 30px;
+        background: transparent;
+        border-radius: 15px;
+        margin-left: -65px;
+    }
+
+    .acc-input {
+        display: block;
+        border: 2px solid #ccc;
+        width: 95%;
+        padding: 10px;
+        margin: 10px auto;
+        border-radius: 5px;
+    }
+
+    .acc-label {
+        color: black;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .acc-container {
+        background: rgba(13, 205, 207, 0.15);
+        border-radius: 20px
+    }
+</style>
+
+<section class="acc-header">
+    <div class="text-box">
+        <form class="acc-form">
+            <h2 style="text-align: center">@ViewData["Title"]</h2>
+            <div class="acc-container">
+                <p>Your account contains personal data that you have given us. This page allows you to download or delete that data.</p>
+                <p>
+                    <strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>
+                </p>
+                <form id="download-data" asp-page="DownloadPersonalData" method="post" class="form-group">
+                    <button class="btn btn-primary" type="submit"><i class="fa fa-download" aria-hidden="true"></i></button>
+                </form>
+                <p>
+                    <a id="delete" asp-page="DeletePersonalData" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                </p>
+            </div>
         </form>
-        <p>
-            <a id="delete" asp-page="DeletePersonalData" class="btn btn-primary">Delete</a>
-        </p>
     </div>
-</div>
+</section>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
