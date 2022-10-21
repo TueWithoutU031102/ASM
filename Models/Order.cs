@@ -10,6 +10,5 @@ namespace ASM.Models
         public int OrderQuantity { get; set; }
         public int BookID { get; set; }
         public Book Book { get; set; }
-        public double BookPrice { get; set; }
     }
 }

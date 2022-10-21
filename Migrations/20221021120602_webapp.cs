@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ASM.Migrations
 {
-    public partial class ASM : Migration
+    public partial class webapp : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -52,7 +52,8 @@ namespace ASM.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CategoryName = table.Column<string>(maxLength: 100, nullable: false)
+                    CategoryName = table.Column<string>(maxLength: 100, nullable: false),
+                    CategoryDesription = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -198,7 +199,7 @@ namespace ASM.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Customer = table.Column<string>(nullable: true),
                     OrderDate = table.Column<DateTime>(nullable: false),
-                    OrderQuangtity = table.Column<int>(nullable: false),
+                    OrderQuantity = table.Column<int>(nullable: false),
                     BookID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -217,9 +218,9 @@ namespace ASM.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "d5b65743-266b-4cb9-95ee-31ff333591ed", "Administrator", "Administrator" },
-                    { "B", "a89d2d71-7e58-46d5-bd34-fec66a9c139e", "Customer", "Customer" },
-                    { "C", "89d834ec-1d2f-495f-8197-416b2a5b8426", "Staff", "Staff" }
+                    { "A", "9e2f158a-fe2f-48d2-9e2f-004faa5bc479", "Administrator", "Administrator" },
+                    { "B", "e5f8d2a0-fe85-4319-82d2-f06f74ffb8e0", "Customer", "Customer" },
+                    { "C", "116f6880-6f07-4054-8dc4-da0b39e05fd9", "Staff", "Staff" }
                 });
 
             migrationBuilder.InsertData(
@@ -227,9 +228,9 @@ namespace ASM.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "00e52405-82d8-4607-ad65-0872832000e3", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEDDtJ9jxgdYOa93s0RhyWhaeHL/sHk7QgHEJlF8O7JHgCmW0dLUj9FTNoO/WlbFxqw==", null, false, "7e1a5632-2b89-40ce-9190-6bbac827094f", false, "admin@fpt.com" },
-                    { "2", 0, "f8829e18-9c1d-441f-99e2-5d8fc32de298", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEFLV4Vnnn5no4RmWi2wiZ7+DgOUkflaVMyzNNj2ejeIbZ6LlJpwlMl7wEcyIc+H6nA==", null, false, "b761b9d0-5429-415d-acee-09e74a97d57c", false, "customer@fpt.com" },
-                    { "3", 0, "1f8828a6-c15a-4399-88fc-75a5d4eee7e5", "staff@fpt.com", true, false, null, null, "staff@fpt.com", "AQAAAAEAACcQAAAAEKCcdu7AlGvpSVLA/HLsJO/nypTtczsdmcx0d5me9MVh6Nl30bKNKZLhvZjbemkZMg==", null, false, "f19d6b7f-ae46-415d-988d-06762010eca4", false, "staff@fpt.com" }
+                    { "1", 0, "d304a3c7-cee3-4330-bb91-ba11746d9fe3", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEIQA0Agu/TFwLEMquauyS9l0LXvPPUk0wBbYMb7Et1FHmD1DMdT/MzXqZ+M+GnWCng==", null, false, "e5ec02fc-4abb-492f-a028-26caebd79f3d", false, "admin@fpt.com" },
+                    { "2", 0, "81ca457c-129a-4641-a78b-b9c50f17ec48", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEHtbUHtgElrgeT3Sen2zqz6Ye9tqy3CUtX5D3QvBaMTTIJ9ksz1B6lmaxYVaz0Q83g==", null, false, "298845b1-d6b7-47e5-a197-ef2bfe3ffee9", false, "customer@fpt.com" },
+                    { "3", 0, "1faadc30-b317-44bf-988c-3d6e2836c859", "staff@fpt.com", true, false, null, null, "staff@fpt.com", "AQAAAAEAACcQAAAAENPTQAqscTfjC+4O3hOmYkaoDj3cwZqCPX7/5/fud+/Ch9xJWl4eob8iHyzU1gUR9Q==", null, false, "bf01f5eb-54b4-4b5f-9c10-6bd4c97bfb39", false, "staff@fpt.com" }
                 });
 
             migrationBuilder.InsertData(
