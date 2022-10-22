@@ -1,0 +1,35 @@
+﻿@page "/admin/roles"
+@model ASM.Areas.Admin.Pages.Role.IndexModel
+
+@if (!User.Identity.IsAuthenticated || User.IsInRole("Administrator") == false)
+{
+    <h1>Bạn không có quyền hoặc hãy đăng nhập trước khi truy cập trang này.</h1>
+    <a asp-area="" asp-controller="Home" asp-action="Index">Back to home page</a>
+}
+else
+{
+    ViewData["Title"] = "Roles list";
+
+
+
+    <h2>@ViewData["Title"]</h2>
+    <partial name="_StatusMessage" model="@Model.StatusMessage" />
+    <div class="mb-2"><a class="btn btn-success btn-sm" asp-page="./Create">Create</a></div>
+    <a class="btn btn-secondary" asp-page="./User">Assign roles to users</a>
+    <table class="table">
+        <tr>
+            <th>Role name</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var role in Model.roles)
+        {
+            <tr>
+                <td>@role.Name</td>
+                <td>
+                    <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-roleid="@role.Id">Edit</a>
+                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-roleid="@role.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+}

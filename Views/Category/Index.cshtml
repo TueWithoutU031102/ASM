@@ -7,7 +7,7 @@
             <input class="search_bar" name="keyword" placeholder="Search A Category" style="transform: translateX(200%) translateY(100%)" />
         </div>
     </form>
-    @if (User.Identity.IsAuthenticated && !User.IsInRole("Customer"))
+    @if (!User.Identity.IsAuthenticated || User.IsInRole("Customer") == true)
     {
         <a class="btn btn-primary" asp-action="Create">Create</a>
     }
@@ -33,7 +33,7 @@
                     <td>@item.CategoryName</td>
                     <td>
                         <a class="btn btn-primary" asp-action="Detail" asp-route-id="@item.Id"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        @if (User.Identity.IsAuthenticated && !User.IsInRole("Customer"))
+                        @if (!User.Identity.IsAuthenticated || User.IsInRole("Customer") == true)
                         {
                             <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                             <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"
