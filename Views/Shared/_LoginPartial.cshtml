@@ -2,15 +2,19 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
+<style>
+    nav {
+        background: #849e6f;
+    }
+</style>
+
 @if (SignInManager.IsSignedIn(User))
 {
     <nav>
-        <a asp-area="" asp-controller="Home" asp-action="Index" style="width: 60%">ASM</a>
+        <a class="logo" asp-area="" asp-controller="Home" asp-action="Index"><img style="width: 20%;" src="img/logobng.png" /></a>
         <form>
-            <input class="search_bar" placeholder="Search Something" style="width: 200px; padding-right: 20px; padding-left: 20px" />
+            <input class="search_bar" placeholder="Search Something" style="width: 200px; padding-right: 20px; padding-left: 20px;" />
         </form>
-    </nav>
-    <nav class="nav2">
         <div class="nav-link" id="navlink">
             <ul>
                 <li><a asp-area="" asp-controller="Home" asp-action="Index">HOME</a></li>
@@ -18,11 +22,9 @@
                 <li><a asp-area="" asp-controller="Category" asp-action="Index">CATEGORY</a></li>
                 @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
                 {
-                    <li><a asp-area="Admin" asp-page="/Role/Index">Manage</a> </li>
+                    <li><a asp-area="Admin" asp-page="/Role/Index"><i class="fa fa-users" aria-hidden="true"></i></a> </li>
                 }
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">ACCOUNT</a>
-                </li>
+                <li><a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"><i class="fa fa-user" aria-hidden="true"></i>PROFILE</a></li>
             </ul>
         </div>
     </nav>
@@ -30,14 +32,10 @@
 else
 {
     <nav>
-
-        <a asp-area="" asp-controller="Home" asp-action="Index" style="width: 60%">ASM</a>
+        <a class="logo" asp-area="" asp-controller="Home" asp-action="Index"><img style="width: 20%;" src="img/logobng.png" /></a>
         <form>
-            <input class="search_bar" placeholder="Search Something" style="width: 200px; padding-right: 20px; padding-left: 20px" />
+            <input class="search_bar" placeholder="Search Something" style="width: 200px; padding-right: 20px; padding-left: 20px;" />
         </form>
-    </nav>
-    <nav class="nav2">
-
         <div class="nav-link" id="navlink">
             <ul>
                 <li><a asp-area="" asp-controller="Home" asp-action="Index">HOME</a></li>
@@ -49,3 +47,5 @@ else
         </div>
     </nav>
 }
+<br />
+<br />

@@ -40,14 +40,14 @@
             <input type="search" name="keyword" class="form-control" placeholder="Search A Book" style="transform: translateX(200%) translateY(100%)" />
         </div>
     </form>
-    @if (!User.Identity.IsAuthenticated || User.IsInRole("Customer") == true)
+    @if (!User.Identity.IsAuthenticated || User.IsInRole("Customer") == false)
     {
         <a class="btn btn-primary" asp-action="Create">Create</a>
     }
     <br />
-    <a class="btn btn-primary" asp-action="SortNameAsc">Sort Incre</a>
+    <a class="btn btn-secondary" asp-action="SortNameAsc"><i class="fa fa-sort-asc" aria-hidden="true"></i></a>
     <br />
-    <a class="btn btn-primary" asp-action="SortNameDesc">Sort Decre</a>
+    <a class="btn btn-secondary" asp-action="SortNameDesc"><i class="fa fa-sort-desc" aria-hidden="true"></i></a>
     <br /><br /><br />
     @if (TempData["Message"] != null)
     {
