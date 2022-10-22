@@ -1,5 +1,5 @@
-﻿@page "/admin/roles"
-@model ASM.Areas.Admin.Pages.Role.IndexModel
+﻿@page "/admin/members"
+@model ASM.Areas.Admin.Pages.User.IndexModel
 
 @if (!User.Identity.IsAuthenticated || !User.IsInRole("Administrator"))
 {
@@ -14,12 +14,20 @@ else
     <a class="btn btn-secondary" asp-page="../User/Index">Assign roles to users</a>
     <table class="table">
         <tr>
-            <th>Role name</th>
+            <th>User name</th>
+            <th>Role</th>
+            <th>Action</th>
         </tr>
-        @foreach (var role in Model.roles)
+        @foreach (var user in Model.users)
         {
             <tr>
-                <td>@role.Name</td>
+                <td>@user.UserName</td>
+                <td>
+
+                </td>
+                <td>
+                    <a class="btn btn-success btn-sm" asp-page="./AddRole" as-route-id="@user.Id">Update role</a>
+                </td>
             </tr>
         }
     </table>
