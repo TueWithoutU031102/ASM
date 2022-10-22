@@ -17,7 +17,7 @@ namespace ASM.Controllers
         [Route("/Book")]
         [HttpGet]
         public IActionResult Index()
-        {
+        { 
             return View(context.Books.ToList());
         }
         public IActionResult Detail(int? id)

@@ -32,6 +32,8 @@ namespace ASM.Data
 
             //add dữ liệu cho bảng UserRole
             SeedUserRole(builder);
+
+            //SeedBook(builder);
         }
 
         private void SeedUser(ModelBuilder builder)
