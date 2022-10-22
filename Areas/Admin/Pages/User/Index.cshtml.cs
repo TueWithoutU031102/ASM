@@ -43,6 +43,8 @@ namespace ASM.Areas.Admin.Pages.User
                 user.RoleNames = string.Join(",", roles);
             }
         }
-        public void OnPost() => RedirectToPage();
+        public void OnPost()
+        {
+        }
     }
 }

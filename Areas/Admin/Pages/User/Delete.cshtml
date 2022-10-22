@@ -1,0 +1,24 @@
+﻿@page "/admin/Delete/{id}"
+@model ASM.Areas.Admin.Pages.User.DeleteModel
+@if (!User.Identity.IsAuthenticated || !User.IsInRole("Administrator"))
+{
+    <h1>Bạn không có quyền hoặc hãy đăng nhập trước khi truy cập trang này.</h1>
+    <a asp-area="" asp-controller="Home" asp-action="Index">Back to home page</a>
+}
+else
+{
+    ViewData["Title"] = "Delete user";
+    <h4>Delete user: @Model.user.UserName</h4>
+    <partial name="_StatusMessage" for="StatusMessage" />
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                <p>R u fuking sure u will delete <strong>@Model.user.UserName</strong>??</p>
+                <div>
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                    <a class="btn btn-secondary" asp-page="./Index">Back to User page</a>
+                </div>
+            </form>
+        </div>
+    </div>
+}
