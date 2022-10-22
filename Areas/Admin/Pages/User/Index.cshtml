@@ -11,23 +11,27 @@ else
     ViewData["Title"] = "Roles list";
     <h2>@ViewData["Title"]</h2>
     <partial name="_StatusMessage" model="@Model.StatusMessage" />
-    <a class="btn btn-secondary" asp-page="../User/Index">Assign roles to users</a>
+    <a class="btn btn-secondary" asp-page="../User/Index">User</a>
+    <a class="btn btn-secondary" asp-page="../Role/Index">Roles</a>
     <table class="table">
         <tr>
             <th>User name</th>
             <th>Role</th>
-            <th>Action</th>
         </tr>
         @foreach (var user in Model.users)
         {
             <tr>
                 <td>@user.UserName</td>
                 <td>
-
-                </td>
-                <td>
-                    <a class="btn btn-success btn-sm" asp-page="./AddRole" as-route-id="@user.Id">Update role</a>
-                </td>
+                    @if (string.IsNullOrEmpty(user.RoleNames))
+                    {
+                        <a class="text-dark" asp-page="./AddRole" asp-route-id="@user.Id">+add role</a>
+                    }
+                    else
+                    {
+                        <a class="text-dark" asp-page="./AddRole" asp-route-id="@user.Id">@user.RoleNames</a>
+                    }
+                    </td>
             </tr>
         }
     </table>

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using ASM.Data;
 using Microsoft.AspNetCore.Identity;
@@ -20,11 +21,27 @@ namespace ASM.Areas.Admin.Pages.User
         {
             _userManager = userManager;
         }
-
-        public List<IdentityUser> users { get; set; }
+        public class UserAndRole : IdentityUser
+        {
+            public string RoleNames { get; set; }
+        }
+        public List<UserAndRole> users { get; set; }
         public async Task OnGet()
         {
-            users = await _userManager.Users.OrderBy(u=>u.UserName).ToListAsync();
+            var qr = _userManager.Users.OrderBy(u => u.UserName);
+            var totalUsers = await qr.CountAsync();
+            var qr1 = qr.Select(u => new UserAndRole()
+            {
+                Id = u.Id,
+                UserName = u.UserName,
+            });
+            users = await qr1.ToListAsync();
+
+            foreach (var user in users)
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+                user.RoleNames = string.Join(",", roles);
+            }
         }
         public void OnPost() => RedirectToPage();
     }
