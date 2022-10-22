@@ -78,25 +78,24 @@ td, p, h1, h2, h3, h4, h5, dt, dd {
 }
 
 .nav-link {
-    background: #edf0e9;
-    flex: 1;
-    text-align: left;
+    display: flex;
+    list-style: none;
+    margin: auto 0;
 }
 
 nav {
-    background: #dbaf96;
-    display: block;
+    background: #849e6f;
+    display: flex;
+    width: 100%;
     padding: 0% 6%;
+    position: relative;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
 }
 
-.nav2 {
-    background: #edf0e9;
-    display: block;
-    padding: 0% 6%;
-    justify-content: space-between;
-    align-items: center;
+.logo{
+    text-align: left;
 }
 
 .nav-link ul li {
