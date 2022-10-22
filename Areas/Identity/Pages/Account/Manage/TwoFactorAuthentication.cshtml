@@ -5,9 +5,50 @@
     ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
 }
 
+<style>
+    .acc-header {
+        transform: translateX(5%);
+    }
+
+    .acc-h1 {
+        margin-bottom: 40px;
+    }
+
+    .acc-form {
+        width: 500px;
+        border: 2px solid #ccc;
+        padding: 30px;
+        background: transparent;
+        border-radius: 15px;
+        margin-left:-65px;
+    }
+
+    .acc-input {
+        display: block;
+        border: 2px solid #ccc;
+        width: 95%;
+        padding: 10px;
+        margin: 10px auto;
+        border-radius: 5px;
+    }
+
+    .acc-label {
+        color: black;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .acc-container {
+        background: rgba(13, 205, 207, 0.15);
+        border-radius: 20px
+    }
+</style>
+
 <partial name="_StatusMessage" for="StatusMessage" />
-<h4>@ViewData["Title"]</h4>
-@if (Model.Is2faEnabled)
+<section class="acc-header">
+    <form class="acc-form">
+        <h2 style="text-align: center">@ViewData["Title"]</h2>
+    @if (Model.Is2faEnabled)
 {
     if (Model.RecoveryCodesLeft == 0)
     {
@@ -51,6 +92,9 @@ else
     <a id="enable-authenticator" asp-page="./EnableAuthenticator" class="btn btn-default">Setup authenticator app</a>
     <a id="reset-authenticator" asp-page="./ResetAuthenticator" class="btn btn-default">Reset authenticator app</a>
 }
+    </form>
+</section>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

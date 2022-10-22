@@ -19,6 +19,9 @@ a {
     color: #fff;
     background-color: #1b6ec2;
     border-color: #1861ac;
+    letter-spacing: 0px;
+    align-items: center;
+    text-align: center;
 }
 
 /* Sticky footer styles
@@ -74,12 +77,10 @@ td, p, h1, h2, h3, h4, h5, dt, dd {
     color: black;
 }
 
-
 .nav-link {
     background: #edf0e9;
     flex: 1;
     text-align: left;
-    letter-spacing: 50px;
 }
 
 nav {
@@ -104,6 +105,14 @@ nav {
     display: inline-block;
     padding: 8px 20px;
     position: relative;
+}
+
+.nav-btn {
+    color: black;
+    display: inline-block;
+    padding: 8px 20px;
+    position: relative;
+    border: hidden;
 }
 
     .nav-link ul li a {

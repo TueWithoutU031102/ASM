@@ -40,7 +40,7 @@
             <input type="search" name="keyword" class="form-control" placeholder="Search A Book" style="transform: translateX(200%) translateY(100%)" />
         </div>
     </form>
-    @if (User.Identity.IsAuthenticated && User.IsInRole("Customer") != true)
+    @if (User.Identity.IsAuthenticated && !User.IsInRole("Customer"))
     {
         <a class="btn btn-primary" asp-action="Create">Create</a>
     }
@@ -60,10 +60,7 @@
                 <th scope="col">ISBN</th>
                 <th scope="col">Title</th>
                 <th scope="col">Author</th>
-                @if (User.Identity.IsAuthenticated && User.IsInRole("Customer") != true)
-                {
-                    <th scope="col">Actions</th>
-                }
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -80,8 +77,8 @@
                     <td>@item.Author</td>
                     <td>
                         <a class="btn btn-primary" asp-action="Detail" asp-route-id="@item.Id"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <a class="btn btn-primary" asp-action="" asp-route-id="@item.Id"><i aria-hidden="true"></i>Order</a>
-                        @if (User.Identity.IsAuthenticated && User.IsInRole("Customer") != true)
+                        <a class="btn btn-primary" asp-action="" asp-route-id="@item.Id"><i class="fa fa-eye" aria-hidden="true"></i>Order</a>
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
                         {
                             <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                             <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"

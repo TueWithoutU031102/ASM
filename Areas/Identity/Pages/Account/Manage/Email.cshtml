@@ -5,38 +5,78 @@
     ViewData["ActivePage"] = ManageNavPages.Email;
 }
 
-<h4>@ViewData["Title"]</h4>
+<style>
+    .acc-header {
+        transform: translateX(5%);
+    }
+
+    .acc-h1 {
+        margin-bottom: 40px;
+    }
+
+    .acc-form {
+        width: 500px;
+        border: 2px solid #ccc;
+        padding: 30px;
+        background: transparent;
+        border-radius: 15px;
+        margin-left: -65px;
+    }
+
+    .acc-input {
+        display: block;
+        border: 2px solid #ccc;
+        width: 95%;
+        padding: 10px;
+        margin: 10px auto;
+        border-radius: 5px;
+    }
+
+    .acc-label {
+        color: black;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .acc-container {
+        background: rgba(13, 205, 207, 0.15);
+        border-radius: 20px
+    }
+</style>
+
 <partial name="_StatusMessage" model="Model.StatusMessage" />
-<div class="row">
-    <div class="col-md-6">
-        <form id="email-form" method="post">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Email"></label>
+<section class="acc-header">
+    <div class="text-box">
+        <form class="acc-form" id="email-form" method="post">
+            <h2 style="text-align: center">@ViewData["Title"]</h2>
+            <div class="acc-container">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <label class="acc-label" asp-for="Email"></label>
                 @if (Model.IsEmailConfirmed)
                 {
-                    <div class="input-group">
-                        <input asp-for="Email" class="form-control" disabled />
+                    <div class="container">
+                        <input asp-for="Email" class="acc-input" disabled />
                         <div class="input-group-append">
                             <span class="input-group-text text-success font-weight-bold">✓</span>
                         </div>
                     </div>
                 }
-                 else
+                else
                 {
-                    <input asp-for="Email" class="form-control" disabled />
+                    <input asp-for="Email" class="acc-input" disabled />
                     <button id="email-verification" type="submit" asp-page-handler="SendVerificationEmail" class="btn btn-link">Send verification email</button>
                 }
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.NewEmail"></label>
-                <input asp-for="Input.NewEmail" class="form-control" />
+                <div class="container">
+                <label class="acc-label" asp-for="Input.NewEmail"></label>
+                <input asp-for="Input.NewEmail" class="acc-input" />
                 <span asp-validation-for="Input.NewEmail" class="text-danger"></span>
+                <br />
+                </div>
             </div>
             <button id="change-email-button" type="submit" asp-page-handler="ChangeEmail" class="btn btn-primary">Change email</button>
         </form>
     </div>
-</div>
+</section>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
