@@ -7,15 +7,15 @@ namespace ASM.Areas.Admin.Pages.Role
 {
     public class RolePageModel : PageModel
     {
-        protected readonly RoleManager<IdentityRole> roleManager;
-        protected readonly ApplicationDbContext context;
+        protected readonly RoleManager<IdentityRole> _roleManager;
+        protected readonly ApplicationDbContext _context;
 
         [TempData]
         public string StatusMessage { get; set; }
         public RolePageModel(RoleManager<IdentityRole> roleManager, ApplicationDbContext context )
         {
-            this.roleManager = roleManager;
-            this.context = context;
+            _roleManager = roleManager;
+            _context = context;
         }
     }
 }
