@@ -94,7 +94,7 @@ nav {
     text-align: center;
 }
 
-.logo{
+.logo {
     text-align: left;
 }
 
@@ -114,26 +114,26 @@ nav {
     border: hidden;
 }
 
-    .nav-link ul li a {
-        color: black;
-        text-decoration: none;
-        font-size: 25px;
-        letter-spacing: 0px;
+.nav-link ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 25px;
+    letter-spacing: 0px;
+}
+
+    .nav-link ul li a::after {
+        content: '';
+        width: 0%;
+        height: 2px;
+        background: black;
+        display: block;
+        margin: auto;
+        transition: 0.5s;
     }
 
-        .nav-link ul li a::after {
-            content: '';
-            width: 0%;
-            height: 2px;
-            background: black;
-            display: block;
-            margin: auto;
-            transition: 0.5s;
-        }
-
-        .nav-link ul li a:hover::after {
-            width: 100%
-        }
+    .nav-link ul li a:hover::after {
+        width: 100%
+    }
 
 .nav-link ul input {
     padding: 20px 10px;
@@ -299,37 +299,7 @@ th {
             width: 73%;
         }
 
-.shop-col {
-    padding-bottom: 100px;
-    padding-top: 100px;
-    border-radius: 50px;
-    margin: auto;
-    box-sizing: border-box;
-    transition: 0.5s;
-}
 
-    .shop-col img {
-        width: 50%
-    }
-
-.shop {
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    padding-top: 20px;
-}
-
-.shop-col:hover {
-    box-shadow: 0 0 20px 0px rgba(0,0,4,4);
-}
-
-.shop-row {
-    margin-right: 10px;
-    margin-top: 5%;
-    display: flex;
-    justify-content: space-between;
-    float: left;
-}
 
 body {
     background: white;

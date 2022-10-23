@@ -36,9 +36,7 @@
     <h1 class="text text-danger">Book List</h1>
     <h4 class="text text-info">Total books: @ViewData["total"]</h4>
     <form method="post" asp-controller="Book" asp-action="Search" class="form-inline">
-        <div class="form-group">
-            <input type="search" name="keyword" class="form-control" placeholder="Search A Book" style="transform: translateX(200%) translateY(100%)" />
-        </div>
+            <input type="search" name="keyword" class="search_bar" placeholder="Search A Book" style="transform: translateX(200%) translateY(100%)" />
     </form>
     @if (User.Identity.IsAuthenticated && !User.IsInRole("Customer"))
     {

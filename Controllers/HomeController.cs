@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
 namespace ASM.Controllers
 {
@@ -23,7 +24,29 @@ namespace ASM.Controllers
         public IActionResult Index()
         {
             var cate = context.Categories.ToList();
-            return View(cate);
+            var book = context.Books.ToList();
+            ViewBag.Cates = cate;
+            ViewBag.Books = book;
+            return View();
+        }
+
+        public IActionResult Detail(int? id)
+        {
+            if (id == null)
+                return NotFound();
+            var book = context.Books.Include(c => c.Category).FirstOrDefault(b => b.Id == id);
+            return View(book);
+        }
+        
+        public IActionResult Category(int? id)
+        {
+
+            if (id == null) return NotFound();
+            var cate = context.Categories.ToList();
+            var book = context.Books.Where(b => b.CategoryId == id).ToList();
+            ViewBag.Books = book;
+            ViewBag.Cates = cate;
+            return View();
         }
 
         public IActionResult Privacy()
