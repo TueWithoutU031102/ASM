@@ -20,6 +20,7 @@ namespace ASM.Controllers
         { 
             return View(context.Books.ToList());
         }
+        
         public IActionResult Detail(int? id)
         {
             if (id == null)
@@ -28,6 +29,20 @@ namespace ASM.Controllers
             }
             var book = context.Books.Include(c => c.Category).FirstOrDefault(b => b.Id == id);
             return View(book);
+        }
+
+        public IActionResult Order(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();            }
+            var order = context.Books.Include(c => c.Category).FirstOrDefault(b => b.Id == id);
+            return View(order);
+        }
+
+        public IActionResult AddToCart(int id)
+        {
+
         }
 
         [HttpGet]

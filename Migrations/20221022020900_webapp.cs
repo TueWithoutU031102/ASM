@@ -53,7 +53,7 @@ namespace ASM.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CategoryName = table.Column<string>(maxLength: 100, nullable: false),
-                    CategoryDesription = table.Column<string>(nullable: true)
+                    CategoryDescription = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -218,9 +218,9 @@ namespace ASM.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "3a99b6d6-85bc-4fb6-b87f-334078afef59", "Administrator", "Administrator" },
-                    { "B", "a26c50d2-1bae-4c73-93ba-e57995aab5cf", "Customer", "Customer" },
-                    { "C", "ba472f9b-b69a-4280-8708-5339f60601e5", "Staff", "Staff" }
+                    { "A", "7b7bac17-daa0-4647-891e-0500a972b5dc", "Administrator", "Administrator" },
+                    { "B", "eea27661-2eea-4c0c-828c-0c4f87b16906", "Customer", "Customer" },
+                    { "C", "b10209af-31d1-4073-9612-1c79ef8d025b", "Staff", "Staff" }
                 });
 
             migrationBuilder.InsertData(
@@ -228,9 +228,9 @@ namespace ASM.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "354ecaa0-9b3a-42ed-adf6-39cd1cbb5886", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEL7mOqZcjA6/grsQxH7jb6QC3dTMp40IH2fvOZgjK8vBik/RWpG+kgns2M7N72FiWw==", null, false, "79b297e9-3d6f-4ed5-a5ee-7b70dcd04062", false, "admin@fpt.com" },
-                    { "2", 0, "d4a163c4-7d66-4081-8d00-33c3258464d2", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEHlFb+50xthflLeukwRtgtrgwINIptEvEv6qHW23zMlmSeNfTqPg/oW9YOfsu5sW/A==", null, false, "a2489c17-4d56-4bd3-aa3b-890bac89cb3f", false, "customer@fpt.com" },
-                    { "3", 0, "c308ce3b-cc1a-4059-b77b-d7d91003bffb", "staff@fpt.com", true, false, null, null, "staff@fpt.com", "AQAAAAEAACcQAAAAEAsg6lJpgtMARKUshrSBsxF45DktI6L9XvexYDUJbT1ijsjchJ/+SQbGtpfdPi7eGw==", null, false, "3372fadd-d3cf-49a4-90a7-b3830cbd10d7", false, "staff@fpt.com" }
+                    { "1", 0, "c403bd46-8b98-463d-a1a6-44c4cb352a0c", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEM8gDt5QNpQMAbSFUymCjBgAzVNX9g133q/5Vr+qisH3kvuQKmr+nKvEeP0xTaQTGQ==", null, false, "90130ed7-93bc-4d92-ab21-c4914fe503d6", false, "admin@fpt.com" },
+                    { "2", 0, "e3797a26-cbf7-48fb-b7b1-6a5ef6888cab", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEG5QyvlSFlf8rscp1xgofA9YVMCBPow4Ku+5Z1M4v+seOUNgJKzMYNmB2ms/1L1rBQ==", null, false, "357ecd7a-57a8-4529-baf8-6e383c3a9866", false, "customer@fpt.com" },
+                    { "3", 0, "3cc45dd7-5e73-4516-91dd-cd0f87b458a4", "staff@fpt.com", true, false, null, null, "staff@fpt.com", "AQAAAAEAACcQAAAAEJQOS21Yhz1DJ5ht36ftKT5vjWjFD0piDNz/FjfIijEE9NLAw1JNyo+xapKzPy5Gtw==", null, false, "dff5b6c5-0c6d-4f07-85ab-241cfcec0769", false, "staff@fpt.com" }
                 });
 
             migrationBuilder.InsertData(

@@ -19,7 +19,6 @@ namespace ASM.Data
         //Books: tên của bảng & tên của DbSet (collection) được gọi đến trong Controller
         public DbSet<Book> Books { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Order> Orders { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
