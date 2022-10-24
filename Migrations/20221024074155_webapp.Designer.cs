@@ -10,13 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASM.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-<<<<<<<< HEAD:Migrations/20221024072119_webapp.Designer.cs
-    [Migration("20221024072119_webapp")]
+    [Migration("20221024074155_webapp")]
     partial class webapp
-========
-    [Migration("20221022014201_ASM")]
-    partial class ASM
->>>>>>>> 374afe4ac9e901fbb0c6c054dc0748e9248ff85e:Migrations/20221022014201_ASM.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -139,33 +134,21 @@ namespace ASM.Migrations
                         new
                         {
                             Id = "A",
-<<<<<<<< HEAD:Migrations/20221024072119_webapp.Designer.cs
-                            ConcurrencyStamp = "b55dca61-0fbe-4d83-adc7-b21332666336",
-========
-                            ConcurrencyStamp = "e0e76431-300f-41d3-95f1-012ceb5c2d5f",
->>>>>>>> 374afe4ac9e901fbb0c6c054dc0748e9248ff85e:Migrations/20221022014201_ASM.Designer.cs
+                            ConcurrencyStamp = "7ca9b78f-1245-43d8-9772-2586b2f1a2c2",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         },
                         new
                         {
                             Id = "B",
-<<<<<<<< HEAD:Migrations/20221024072119_webapp.Designer.cs
-                            ConcurrencyStamp = "67600cb3-518a-4062-b000-9b35d0cf3d6d",
-========
-                            ConcurrencyStamp = "74678c2e-a144-4b8f-bf73-086dcf20bf1e",
->>>>>>>> 374afe4ac9e901fbb0c6c054dc0748e9248ff85e:Migrations/20221022014201_ASM.Designer.cs
+                            ConcurrencyStamp = "5e9114aa-a70d-41c9-ae6e-886c0acc9e97",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         },
                         new
                         {
                             Id = "C",
-<<<<<<<< HEAD:Migrations/20221024072119_webapp.Designer.cs
-                            ConcurrencyStamp = "bd8ac8ef-5acc-4479-8ed1-0ce65710a23a",
-========
-                            ConcurrencyStamp = "629a97cb-0078-47bc-872d-cc195fec3ad9",
->>>>>>>> 374afe4ac9e901fbb0c6c054dc0748e9248ff85e:Migrations/20221022014201_ASM.Designer.cs
+                            ConcurrencyStamp = "d27589cb-e68e-45be-a959-88b407c8fd90",
                             Name = "Staff",
                             NormalizedName = "Staff"
                         });
@@ -264,24 +247,14 @@ namespace ASM.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-<<<<<<<< HEAD:Migrations/20221024072119_webapp.Designer.cs
-                            ConcurrencyStamp = "9e2960da-fe15-4e5e-bd87-107bb2e72293",
-========
-                            ConcurrencyStamp = "3bb2aa71-ae4b-47b5-a8bf-9a417fe78920",
->>>>>>>> 374afe4ac9e901fbb0c6c054dc0748e9248ff85e:Migrations/20221022014201_ASM.Designer.cs
+                            ConcurrencyStamp = "d17fe442-b638-4ab2-859b-68b6dbc1a3a3",
                             Email = "admin@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "admin@fpt.com",
-<<<<<<<< HEAD:Migrations/20221024072119_webapp.Designer.cs
-                            PasswordHash = "AQAAAAEAACcQAAAAEL14V48bAMLzA6jvYVABHmhwX/ULYwDRP9bzXNG3MRjdsgdSALtHKl1VSMQNEBslVw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJs/cBZroQeTM4PW5r/hZsXl9rq2KLjg9pCcVwnkxpfePxhfwGFQEScMUb6bbgEsLA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "414ce15b-68b5-48f0-915a-b04d5590bf71",
-========
-                            PasswordHash = "AQAAAAEAACcQAAAAEDwO92qEhaKRhcqZubZ5xn5LSTO9MCh89vzsmW0vWx6hUxzugMq00yj1RrpAfP7//g==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "bcb67061-df0c-4e91-82f5-f7ca767ddfe1",
->>>>>>>> 374afe4ac9e901fbb0c6c054dc0748e9248ff85e:Migrations/20221022014201_ASM.Designer.cs
+                            SecurityStamp = "7f55282e-a695-4de3-9660-fd4f84b4c1db",
                             TwoFactorEnabled = false,
                             UserName = "admin@fpt.com"
                         },
@@ -289,24 +262,14 @@ namespace ASM.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-<<<<<<<< HEAD:Migrations/20221024072119_webapp.Designer.cs
-                            ConcurrencyStamp = "cc915700-16ac-45c0-8711-cf1a19b34e0a",
-========
-                            ConcurrencyStamp = "9d8c722a-0ea2-4948-b655-fea36c27b75f",
->>>>>>>> 374afe4ac9e901fbb0c6c054dc0748e9248ff85e:Migrations/20221022014201_ASM.Designer.cs
+                            ConcurrencyStamp = "35790ff6-4a64-4b05-9914-32d2363a5d03",
                             Email = "customer@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "customer@fpt.com",
-<<<<<<<< HEAD:Migrations/20221024072119_webapp.Designer.cs
-                            PasswordHash = "AQAAAAEAACcQAAAAEJxxU44sjA3ZC2zOSAKKF+3K5MvQvSsv2QaHk7MxYUpfgjn1Y9FwiETAhGfQ11fb8A==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBMYiItW14vHs2qzPR/6K0nIKFUitkeaKYvEj6L6GWfAabiM/vehj5zFvJoEzp+V6w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "78d27163-fb86-43d3-bb57-89b2e3560bc5",
-========
-                            PasswordHash = "AQAAAAEAACcQAAAAEASi8o0wCmd6RePtIkdkBJ4Ws2uixFD4Iknd0D/rVuubdM9V8PLFlztprlKJFYGRyQ==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "1e6caad8-2f12-44d7-b69f-ab5ccaa65af0",
->>>>>>>> 374afe4ac9e901fbb0c6c054dc0748e9248ff85e:Migrations/20221022014201_ASM.Designer.cs
+                            SecurityStamp = "c3f563bf-18ab-4006-ac94-37ec1f7c9603",
                             TwoFactorEnabled = false,
                             UserName = "customer@fpt.com"
                         },
@@ -314,24 +277,14 @@ namespace ASM.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-<<<<<<<< HEAD:Migrations/20221024072119_webapp.Designer.cs
-                            ConcurrencyStamp = "a8337379-6903-4323-928d-e75282175389",
-========
-                            ConcurrencyStamp = "eb57fe9b-0015-436c-a440-8a57e0acf666",
->>>>>>>> 374afe4ac9e901fbb0c6c054dc0748e9248ff85e:Migrations/20221022014201_ASM.Designer.cs
+                            ConcurrencyStamp = "f5d6d1b3-7269-4a9f-82a6-d149e55b7ffc",
                             Email = "staff@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "staff@fpt.com",
-<<<<<<<< HEAD:Migrations/20221024072119_webapp.Designer.cs
-                            PasswordHash = "AQAAAAEAACcQAAAAEPcLkBEAJYGIxxi0g+pxrjev8ken3tThfjsclNHGfRab1fNHBOnZO2q4Iv++xNYDRA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGayqeNNXmw7XeJMjxPT/7/DCChwyabLrEjfRVrjQjpvz551xnU0W7omn76NLDNsww==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "20c19360-f861-4f54-942e-2c7a204a17de",
-========
-                            PasswordHash = "AQAAAAEAACcQAAAAENqze/bGqOyZH2RZILTes3BKNcHUCSokeRe+4GB6RB6Zal14QbGSqIvli76X6iG3Xw==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "9a8d04b5-2a5d-4dca-80cc-ba2a821d386a",
->>>>>>>> 374afe4ac9e901fbb0c6c054dc0748e9248ff85e:Migrations/20221022014201_ASM.Designer.cs
+                            SecurityStamp = "05ba39d2-e0db-4100-a9d8-5ddb1569752a",
                             TwoFactorEnabled = false,
                             UserName = "staff@fpt.com"
                         });
