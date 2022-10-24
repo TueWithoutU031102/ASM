@@ -18,7 +18,7 @@ namespace ASM.Areas.Admin.Pages.Role
         public List<IdentityRole> roles { get; set; }
         public async Task OnGet()
         {
-            roles = await roleManager.Roles.ToListAsync();
+            roles = await _roleManager.Roles.ToListAsync();
         }
         public void OnPost() => RedirectToPage();
     }

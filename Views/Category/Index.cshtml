@@ -7,7 +7,7 @@
             <input class="search_bar" name="keyword" placeholder="Search" style="transform: translateX(200%) translateY(100%)" />
         </div>
     </form>
-    @if (!User.Identity.IsAuthenticated || !User.IsInRole("Customer"))
+    @if (User.Identity.IsAuthenticated && !User.IsInRole("Customer"))
     {
         <a class="btn btn-primary" asp-action="Create">Create</a>
     }

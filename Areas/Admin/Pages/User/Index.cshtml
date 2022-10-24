@@ -1,0 +1,45 @@
+﻿@page "/admin/members"
+@model ASM.Areas.Admin.Pages.User.IndexModel
+
+@if (!User.Identity.IsAuthenticated || !User.IsInRole("Administrator"))
+{
+    <h1>Bạn không có quyền hoặc hãy đăng nhập trước khi truy cập trang này.</h1>
+    <a asp-area="" asp-controller="Home" asp-action="Index">Back to home page</a>
+}
+else
+{
+    ViewData["Title"] = "Roles list";
+    <h2>@ViewData["Title"]</h2>
+    <partial name="_StatusMessage" model="@Model.StatusMessage" />
+    <a class="btn btn-secondary" asp-page="../User/Index">User</a>
+    <a class="btn btn-secondary" asp-page="../Role/Index">Roles</a>
+    <table class="table">
+        <tr>
+            <th>User name</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var user in Model.users)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td>
+                    @if (string.IsNullOrEmpty(user.RoleNames))
+                    {
+                        <a class="text-dark" asp-page="./AddRole" asp-route-id="@user.Id">+add role</a>
+                    }
+                    else
+                    {
+                        <a class="text-dark" asp-page="./AddRole" asp-route-id="@user.Id">@user.RoleNames</a>
+                    }
+
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@user.Id">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </table>
+}

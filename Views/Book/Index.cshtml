@@ -36,18 +36,16 @@
     <h1 class="text text-danger">Book List</h1>
     <h4 class="text text-info">Total books: @ViewData["total"]</h4>
     <form method="post" asp-controller="Book" asp-action="Search" class="form-inline">
-        <div class="form-group">
-            <input type="search" name="keyword" class="form-control" placeholder="Search A Book" style="transform: translateX(200%) translateY(100%)" />
-        </div>
+            <input type="search" name="keyword" class="search_bar" placeholder="Search A Book" style="transform: translateX(200%) translateY(100%)" />
     </form>
     @if (User.Identity.IsAuthenticated && !User.IsInRole("Customer"))
     {
         <a class="btn btn-primary" asp-action="Create">Create</a>
     }
     <br />
-    <a class="btn btn-primary" asp-action="SortNameAsc">Sort Incre</a>
+    <a class="btn btn-secondary" asp-action="SortNameAsc"><i class="fa fa-sort-asc" aria-hidden="true"></i></a>
     <br />
-    <a class="btn btn-primary" asp-action="SortNameDesc">Sort Decre</a>
+    <a class="btn btn-secondary" asp-action="SortNameDesc"><i class="fa fa-sort-desc" aria-hidden="true"></i></a>
     <br /><br /><br />
     @if (TempData["Message"] != null)
     {
