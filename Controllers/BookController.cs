@@ -40,10 +40,10 @@ namespace ASM.Controllers
             return View(order);
         }
 
-        public IActionResult AddToCart(int id)
+/*        public IActionResult AddToCart(int id)
         {
 
-        }
+        }*/
 
         [HttpGet]
         public IActionResult Create()

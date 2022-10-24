@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using static System.Net.WebRequestMethods;
 
 namespace ASM.Data
 {
@@ -33,6 +34,9 @@ namespace ASM.Data
             SeedUserRole(builder);
 
             //SeedBook(builder);
+            SeedBooks(builder);
+
+            SeedCategory(builder);
         }
 
         private void SeedUser(ModelBuilder builder)
@@ -73,6 +77,34 @@ namespace ASM.Data
 
             //4. add tài khoản vào db
             builder.Entity<IdentityUser>().HasData(admin, customer, staff);
+        }
+        private void SeedCategory(ModelBuilder builder)
+        {
+            builder.Entity<Category>().HasData(
+                new Category
+                {
+                    Id = 1,
+                    CategoryName = "Academic",
+                    CategoryDescription = "A Academic Book for academical uses"
+                }
+            );
+        }
+        
+        private void SeedBooks(ModelBuilder builder)
+        {
+            builder.Entity<Book>().HasData(
+                new Book
+                {
+                    Id=1,
+                    Title = "Digital Planet: Pearson New International Edition: Tomorrow's Technology and You, Complete",
+                    ISBN = "1292021063",
+                    PublicationDate=DateTime.Parse("2013-7-20"),
+                    Publisher = "Pearson",
+                    Author = "George Beekman",
+                    Image = "https://m.media-amazon.com/images/I/41KpijH6OML._SX392_BO1,204,203,200_.jpg",
+                    CategoryId = 1,
+                }
+            );
         }
 
         private void SeedRole(ModelBuilder builder)

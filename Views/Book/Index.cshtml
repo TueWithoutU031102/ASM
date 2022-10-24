@@ -77,7 +77,7 @@
                     <td>@item.Author</td>
                     <td>
                         <a class="btn btn-primary" asp-action="Detail" asp-route-id="@item.Id"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                        <a class="btn btn-primary" asp-action="" asp-route-id="@item.Id"><i class="fa fa-eye" aria-hidden="true"></i>Order</a>
+                        <a class="btn btn-primary" asp-action="Order" asp-route-id="@item.Id"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
                         {
                             <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>

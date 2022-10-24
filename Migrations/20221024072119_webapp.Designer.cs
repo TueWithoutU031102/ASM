@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASM.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221022020900_webapp")]
+    [Migration("20221024072119_webapp")]
     partial class webapp
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,6 +61,19 @@ namespace ASM.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Books");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Author = "George Beekman",
+                            CategoryId = 1,
+                            ISBN = "1292021063",
+                            Image = "https://m.media-amazon.com/images/I/41KpijH6OML._SX392_BO1,204,203,200_.jpg",
+                            PublicationDate = new DateTime(2013, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Publisher = "Pearson",
+                            Title = "Digital Planet: Pearson New International Edition: Tomorrow's Technology and You, Complete"
+                        });
                 });
 
             modelBuilder.Entity("ASM.Models.Category", b =>
@@ -81,32 +94,14 @@ namespace ASM.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-                });
 
-            modelBuilder.Entity("ASM.Models.Order", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BookID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Customer")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("OrderDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("OrderQuantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BookID");
-
-                    b.ToTable("Orders");
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryDescription = "A Academic Book for academical uses",
+                            CategoryName = "Academic"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -139,21 +134,21 @@ namespace ASM.Migrations
                         new
                         {
                             Id = "A",
-                            ConcurrencyStamp = "7b7bac17-daa0-4647-891e-0500a972b5dc",
+                            ConcurrencyStamp = "b55dca61-0fbe-4d83-adc7-b21332666336",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         },
                         new
                         {
                             Id = "B",
-                            ConcurrencyStamp = "eea27661-2eea-4c0c-828c-0c4f87b16906",
+                            ConcurrencyStamp = "67600cb3-518a-4062-b000-9b35d0cf3d6d",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         },
                         new
                         {
                             Id = "C",
-                            ConcurrencyStamp = "b10209af-31d1-4073-9612-1c79ef8d025b",
+                            ConcurrencyStamp = "bd8ac8ef-5acc-4479-8ed1-0ce65710a23a",
                             Name = "Staff",
                             NormalizedName = "Staff"
                         });
@@ -252,14 +247,14 @@ namespace ASM.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c403bd46-8b98-463d-a1a6-44c4cb352a0c",
+                            ConcurrencyStamp = "9e2960da-fe15-4e5e-bd87-107bb2e72293",
                             Email = "admin@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "admin@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEM8gDt5QNpQMAbSFUymCjBgAzVNX9g133q/5Vr+qisH3kvuQKmr+nKvEeP0xTaQTGQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEL14V48bAMLzA6jvYVABHmhwX/ULYwDRP9bzXNG3MRjdsgdSALtHKl1VSMQNEBslVw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "90130ed7-93bc-4d92-ab21-c4914fe503d6",
+                            SecurityStamp = "414ce15b-68b5-48f0-915a-b04d5590bf71",
                             TwoFactorEnabled = false,
                             UserName = "admin@fpt.com"
                         },
@@ -267,14 +262,14 @@ namespace ASM.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e3797a26-cbf7-48fb-b7b1-6a5ef6888cab",
+                            ConcurrencyStamp = "cc915700-16ac-45c0-8711-cf1a19b34e0a",
                             Email = "customer@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "customer@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEG5QyvlSFlf8rscp1xgofA9YVMCBPow4Ku+5Z1M4v+seOUNgJKzMYNmB2ms/1L1rBQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJxxU44sjA3ZC2zOSAKKF+3K5MvQvSsv2QaHk7MxYUpfgjn1Y9FwiETAhGfQ11fb8A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "357ecd7a-57a8-4529-baf8-6e383c3a9866",
+                            SecurityStamp = "78d27163-fb86-43d3-bb57-89b2e3560bc5",
                             TwoFactorEnabled = false,
                             UserName = "customer@fpt.com"
                         },
@@ -282,14 +277,14 @@ namespace ASM.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3cc45dd7-5e73-4516-91dd-cd0f87b458a4",
+                            ConcurrencyStamp = "a8337379-6903-4323-928d-e75282175389",
                             Email = "staff@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "staff@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJQOS21Yhz1DJ5ht36ftKT5vjWjFD0piDNz/FjfIijEE9NLAw1JNyo+xapKzPy5Gtw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPcLkBEAJYGIxxi0g+pxrjev8ken3tThfjsclNHGfRab1fNHBOnZO2q4Iv++xNYDRA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "dff5b6c5-0c6d-4f07-85ab-241cfcec0769",
+                            SecurityStamp = "20c19360-f861-4f54-942e-2c7a204a17de",
                             TwoFactorEnabled = false,
                             UserName = "staff@fpt.com"
                         });
@@ -401,15 +396,6 @@ namespace ASM.Migrations
                     b.HasOne("ASM.Models.Category", "Category")
                         .WithMany("Books")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ASM.Models.Order", b =>
-                {
-                    b.HasOne("ASM.Models.Book", "Book")
-                        .WithMany("Orders")
-                        .HasForeignKey("BookID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

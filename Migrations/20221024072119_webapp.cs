@@ -191,36 +191,14 @@ namespace ASM.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Orders",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Customer = table.Column<string>(nullable: true),
-                    OrderDate = table.Column<DateTime>(nullable: false),
-                    OrderQuantity = table.Column<int>(nullable: false),
-                    BookID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Orders", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Orders_Books_BookID",
-                        column: x => x.BookID,
-                        principalTable: "Books",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "7b7bac17-daa0-4647-891e-0500a972b5dc", "Administrator", "Administrator" },
-                    { "B", "eea27661-2eea-4c0c-828c-0c4f87b16906", "Customer", "Customer" },
-                    { "C", "b10209af-31d1-4073-9612-1c79ef8d025b", "Staff", "Staff" }
+                    { "A", "b55dca61-0fbe-4d83-adc7-b21332666336", "Administrator", "Administrator" },
+                    { "B", "67600cb3-518a-4062-b000-9b35d0cf3d6d", "Customer", "Customer" },
+                    { "C", "bd8ac8ef-5acc-4479-8ed1-0ce65710a23a", "Staff", "Staff" }
                 });
 
             migrationBuilder.InsertData(
@@ -228,25 +206,30 @@ namespace ASM.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "c403bd46-8b98-463d-a1a6-44c4cb352a0c", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEM8gDt5QNpQMAbSFUymCjBgAzVNX9g133q/5Vr+qisH3kvuQKmr+nKvEeP0xTaQTGQ==", null, false, "90130ed7-93bc-4d92-ab21-c4914fe503d6", false, "admin@fpt.com" },
-                    { "2", 0, "e3797a26-cbf7-48fb-b7b1-6a5ef6888cab", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEG5QyvlSFlf8rscp1xgofA9YVMCBPow4Ku+5Z1M4v+seOUNgJKzMYNmB2ms/1L1rBQ==", null, false, "357ecd7a-57a8-4529-baf8-6e383c3a9866", false, "customer@fpt.com" },
-                    { "3", 0, "3cc45dd7-5e73-4516-91dd-cd0f87b458a4", "staff@fpt.com", true, false, null, null, "staff@fpt.com", "AQAAAAEAACcQAAAAEJQOS21Yhz1DJ5ht36ftKT5vjWjFD0piDNz/FjfIijEE9NLAw1JNyo+xapKzPy5Gtw==", null, false, "dff5b6c5-0c6d-4f07-85ab-241cfcec0769", false, "staff@fpt.com" }
+                    { "1", 0, "9e2960da-fe15-4e5e-bd87-107bb2e72293", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEL14V48bAMLzA6jvYVABHmhwX/ULYwDRP9bzXNG3MRjdsgdSALtHKl1VSMQNEBslVw==", null, false, "414ce15b-68b5-48f0-915a-b04d5590bf71", false, "admin@fpt.com" },
+                    { "2", 0, "cc915700-16ac-45c0-8711-cf1a19b34e0a", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEJxxU44sjA3ZC2zOSAKKF+3K5MvQvSsv2QaHk7MxYUpfgjn1Y9FwiETAhGfQ11fb8A==", null, false, "78d27163-fb86-43d3-bb57-89b2e3560bc5", false, "customer@fpt.com" },
+                    { "3", 0, "a8337379-6903-4323-928d-e75282175389", "staff@fpt.com", true, false, null, null, "staff@fpt.com", "AQAAAAEAACcQAAAAEPcLkBEAJYGIxxi0g+pxrjev8ken3tThfjsclNHGfRab1fNHBOnZO2q4Iv++xNYDRA==", null, false, "20c19360-f861-4f54-942e-2c7a204a17de", false, "staff@fpt.com" }
                 });
 
             migrationBuilder.InsertData(
-                table: "AspNetUserRoles",
-                columns: new[] { "UserId", "RoleId" },
-                values: new object[] { "1", "A" });
+                table: "Categories",
+                columns: new[] { "Id", "CategoryDescription", "CategoryName" },
+                values: new object[] { 1, "A Academic Book for academical uses", "Academic" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "UserId", "RoleId" },
-                values: new object[] { "2", "B" });
+                values: new object[,]
+                {
+                    { "1", "A" },
+                    { "2", "B" },
+                    { "3", "C" }
+                });
 
             migrationBuilder.InsertData(
-                table: "AspNetUserRoles",
-                columns: new[] { "UserId", "RoleId" },
-                values: new object[] { "3", "C" });
+                table: "Books",
+                columns: new[] { "Id", "Author", "CategoryId", "ISBN", "Image", "PublicationDate", "Publisher", "Title" },
+                values: new object[] { 1, "George Beekman", 1, "1292021063", "https://m.media-amazon.com/images/I/41KpijH6OML._SX392_BO1,204,203,200_.jpg", new DateTime(2013, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pearson", "Digital Planet: Pearson New International Edition: Tomorrow's Technology and You, Complete" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -291,11 +274,6 @@ namespace ASM.Migrations
                 name: "IX_Books_CategoryId",
                 table: "Books",
                 column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Orders_BookID",
-                table: "Orders",
-                column: "BookID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -316,16 +294,13 @@ namespace ASM.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Orders");
+                name: "Books");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "Books");
 
             migrationBuilder.DropTable(
                 name: "Categories");
