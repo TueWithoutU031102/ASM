@@ -35,10 +35,6 @@ namespace ASM
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddDistributedMemoryCache();           // Đăng ký dịch vụ lưu cache trong bộ nhớ (Session sẽ sử dụng nó)
-            services.AddSession(cfg => {                    // Đăng ký dịch vụ Session
-                cfg.Cookie.Name = "GCH0907";                // Đặt tên Session - tên này sử dụng ở Browser (Cookie)
-                cfg.IdleTimeout = new TimeSpan(0, 60, 0);   // Thời gian tồn tại của Session
             });
         }
 
@@ -58,7 +54,6 @@ namespace ASM
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseSession();
 
             app.UseRouting();
 
