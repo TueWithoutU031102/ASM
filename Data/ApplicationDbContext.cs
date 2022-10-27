@@ -20,6 +20,8 @@ namespace ASM.Data
         //Books: tên của bảng & tên của DbSet (collection) được gọi đến trong Controller
         public DbSet<Book> Books { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Request> Requests { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -99,6 +101,30 @@ namespace ASM.Data
                     Title = "Digital Planet: Pearson New International Edition: Tomorrow's Technology and You, Complete",
                     ISBN = "1292021063",
                     PublicationDate=DateTime.Parse("2013-7-20"),
+                    Publisher = "Pearson",
+                    Author = "George Beekman",
+                    Image = "https://m.media-amazon.com/images/I/41KpijH6OML._SX392_BO1,204,203,200_.jpg",
+                    CategoryId = 1,
+                },
+
+                new Book
+                {
+                    Id = 2,
+                    Title = "Digital Planet: Pearson New International Edition: Tomorrow's Technology and You, Complete",
+                    ISBN = "1292021063",
+                    PublicationDate = DateTime.Parse("2013-7-20"),
+                    Publisher = "Pearson",
+                    Author = "George Beekman",
+                    Image = "https://m.media-amazon.com/images/I/41KpijH6OML._SX392_BO1,204,203,200_.jpg",
+                    CategoryId = 1,
+                },
+
+                new Book
+                {
+                    Id = 3,
+                    Title = "Digital Planet: Pearson New International Edition: Tomorrow's Technology and You, Complete",
+                    ISBN = "1292021063",
+                    PublicationDate = DateTime.Parse("2013-7-20"),
                     Publisher = "Pearson",
                     Author = "George Beekman",
                     Image = "https://m.media-amazon.com/images/I/41KpijH6OML._SX392_BO1,204,203,200_.jpg",

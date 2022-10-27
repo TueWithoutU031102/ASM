@@ -1,5 +1,5 @@
-﻿@model ASM.Models.Book;
-<div class="row text-center">
+﻿@model List<Book>
+@*<div class="row text-center">
     <div class="col">
         <img src="@Model.Image" width="400" height="400">
     </div>
@@ -39,6 +39,23 @@
                 </td>
             </tr>
         </table>
+    </div>
+</div>*@
+
+<div class="card-group">
+    <div class="row">
+        @foreach (var book in Model)
+        {
+            <div class="col-md-3">
+                <img src="@book.Image" width="100" height="100"> <br>
+                Name: @book.Title <br>
+                <form method="post" asp-controller="Order" asp-action="MakeOrder">
+                    <input type="hidden" name="book" value="@book.Id">
+@*                    <input type="number" name="quantity" min="1" max="@book.Quantity"><br>*@
+                    <input type="submit" value="Order">
+                </form>
+            </div>
+        }
     </div>
 </div>
 @section Scripts {
