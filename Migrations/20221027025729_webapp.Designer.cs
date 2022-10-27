@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASM.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221027011646_webapp")]
+    [Migration("20221027025729_webapp")]
     partial class webapp
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -77,24 +77,24 @@ namespace ASM.Migrations
                         new
                         {
                             Id = 2,
-                            Author = "George Beekman",
+                            Author = "ClydeBank Technology",
                             CategoryId = 1,
-                            ISBN = "1292021063",
-                            Image = "https://m.media-amazon.com/images/I/41KpijH6OML._SX392_BO1,204,203,200_.jpg",
-                            PublicationDate = new DateTime(2013, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Publisher = "Pearson",
-                            Title = "Digital Planet: Pearson New International Edition: Tomorrow's Technology and You, Complete"
+                            ISBN = "1945051086",
+                            Image = "https://m.media-amazon.com/images/I/41p8fQ6kRfL._SX331_BO1,204,203,200_.jpg",
+                            PublicationDate = new DateTime(2016, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Publisher = " ClydeBank Media LLC",
+                            Title = "ITSM: QuickStart Guide - The Simplified Beginner's Guide to IT Service Management"
                         },
                         new
                         {
                             Id = 3,
-                            Author = "George Beekman",
+                            Author = "James Bernstein",
                             CategoryId = 1,
-                            ISBN = "1292021063",
-                            Image = "https://m.media-amazon.com/images/I/41KpijH6OML._SX392_BO1,204,203,200_.jpg",
-                            PublicationDate = new DateTime(2013, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Publisher = "Pearson",
-                            Title = "Digital Planet: Pearson New International Edition: Tomorrow's Technology and You, Complete"
+                            ISBN = "1983154830",
+                            Image = "https://m.media-amazon.com/images/I/41sSdMa14gL._SX348_BO1,204,203,200_.jpg",
+                            PublicationDate = new DateTime(2018, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Publisher = "Independently published",
+                            Title = "Computers Made Easy: From Dummy To Geek"
                         });
                 });
 
@@ -188,21 +188,21 @@ namespace ASM.Migrations
                         new
                         {
                             Id = "A",
-                            ConcurrencyStamp = "b95c4a04-f369-4ffe-8e27-eed944bc0ed3",
+                            ConcurrencyStamp = "f763332b-374a-4e38-9086-ba8077693039",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         },
                         new
                         {
                             Id = "B",
-                            ConcurrencyStamp = "37883c4e-b13b-40fd-acb8-3e1ca26ff4a4",
+                            ConcurrencyStamp = "bfc1ce6a-6dfc-41f2-a78c-0e4d49dd4fa1",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         },
                         new
                         {
                             Id = "C",
-                            ConcurrencyStamp = "aac99915-a303-460b-832c-326ac2f1601c",
+                            ConcurrencyStamp = "7357cb27-d99a-41fd-b6a5-7d4068d46884",
                             Name = "Staff",
                             NormalizedName = "Staff"
                         });
@@ -301,14 +301,14 @@ namespace ASM.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a241e77b-ff53-4924-8598-88f74f058855",
+                            ConcurrencyStamp = "18f3d524-50d0-4044-9e40-a2fdd5428fc5",
                             Email = "admin@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "admin@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMSkxaHs0xAOuBxIVKKS66Xfv24vUu4/XPGZtm1iWbWDSb6SLUX0XwSsycs47NN0/g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEHSv3jgNve4S3UL/kdISlXJZHjdpuQVnXYHUxGncznY+XNohBjRt/5f2qYXAAWaJw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "652236aa-e104-438e-a19a-e9fc9ea1fe8b",
+                            SecurityStamp = "ec02c351-431e-46b8-9772-8211432328ff",
                             TwoFactorEnabled = false,
                             UserName = "admin@fpt.com"
                         },
@@ -316,14 +316,14 @@ namespace ASM.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "18dc7db4-56bc-431f-b265-84f8d373fb8d",
+                            ConcurrencyStamp = "4ab2d9fa-a21b-4950-99d1-d1659cf4d40e",
                             Email = "customer@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "customer@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAELQ8AEsDoe6TXP8JpfwgqvHjU9Nrw/LdhRc/FYxlPJmOCrRa8NCV8dld8+3WsY7Ifg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAED8075cUTvQv00LmRO31zbthOTg8+7i94PBpLh+Jx4gQsh8g6VWigheQDcRTAhvnQA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a37c8087-ac55-4eb5-8213-c254d0d72e6b",
+                            SecurityStamp = "080104dc-ad91-461f-96cc-75055c88c4db",
                             TwoFactorEnabled = false,
                             UserName = "customer@fpt.com"
                         },
@@ -331,14 +331,14 @@ namespace ASM.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "caa29f64-62f2-41f3-82e0-83216471c52b",
+                            ConcurrencyStamp = "fadee8d5-be09-4f76-ada2-3e1ca9e114c8",
                             Email = "staff@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "staff@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEB+io1cBFxDYK/gMAORdeqbSR3NIDDJ1qO3tKwLGamxkUDdpDigGT984GcQxwz2MpQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOsOHW3j5oW1xZT+WgM0gpVp0xeUk0O0yTeq5AE+mQQwBn1INTkCcCZuWOn0OWMtoA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fc045331-9a2d-40da-b762-1bdcd431b59c",
+                            SecurityStamp = "9ef9f0a7-a178-419d-afdc-bb621ee462e4",
                             TwoFactorEnabled = false,
                             UserName = "staff@fpt.com"
                         });
