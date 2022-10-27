@@ -21,7 +21,7 @@ namespace ASM.Data
         public DbSet<Book> Books { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<Request> Requests { get; set; }
+/*        public DbSet<Request> Requests { get; set; }*/
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
