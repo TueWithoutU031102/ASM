@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿/*using Microsoft.AspNetCore.Mvc;
 namespace ASM.Controllers
 {
     using ASM.Data;
@@ -22,7 +22,7 @@ namespace ASM.Controllers
             [HttpGet]
             public IActionResult MakeRequest()
             {
-                return View(context.Requests.ToList());
+*//*                return View(context.Requests.ToList());*//*
             }
             [HttpPost]
             public IActionResult MakeRequest(Book book, int quantity, string status)
@@ -75,3 +75,4 @@ namespace ASM.Controllers
     }
 
 }
+*/

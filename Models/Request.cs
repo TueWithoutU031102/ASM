@@ -1,7 +1,6 @@
-﻿using ASM.Models;
-using System;
+﻿using System;
 
-namespace ASM.Controllers
+namespace ASM.Models
 {
     public class Request
     {
