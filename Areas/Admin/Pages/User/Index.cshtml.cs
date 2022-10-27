@@ -28,6 +28,7 @@ namespace ASM.Areas.Admin.Pages.User
         public List<UserAndRole> users { get; set; }
         public async Task OnGet()
         {
+
             var qr = _userManager.Users.OrderBy(u => u.UserName);
             var totalUsers = await qr.CountAsync();
             var qr1 = qr.Select(u => new UserAndRole()
