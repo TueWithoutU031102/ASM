@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 
 namespace ASM.Models
 {
@@ -11,13 +12,17 @@ namespace ASM.Models
         [StringLength(100)]
         public string Title { get; set; }
         [Required]
-        [MinLength(10),MaxLength(10)]
-        public string ISBN  { get; set; }
+        [MinLength(10), MaxLength(10)]
+        public string ISBN { get; set; }
         [Required]
         [DataType(DataType.Date)]
         public DateTime PublicationDate { get; set; }
         [Required]
         public string Publisher { get; set; }
+        [Required(ErrorMessage = "Language can not be blank")]
+        public string Language { get; set; }
+        [Required]
+        public double Price { get; set; }
         [Required]
         public string Author { get; set; }
         [Required]
@@ -26,7 +31,7 @@ namespace ASM.Models
         [Required(ErrorMessage = "Category can not be blank")]
         [Range(1, 9999)]
         public int CategoryId { get; set; }
-        
+
         public Category Category { get; set; }
 
         public ICollection<Order> Orders { get; set; }

@@ -176,6 +176,8 @@ namespace ASM.Migrations
                     ISBN = table.Column<string>(maxLength: 10, nullable: false),
                     PublicationDate = table.Column<DateTime>(nullable: false),
                     Publisher = table.Column<string>(nullable: false),
+                    Language = table.Column<string>(nullable: false),
+                    Price = table.Column<double>(nullable: false),
                     Author = table.Column<string>(nullable: false),
                     Image = table.Column<string>(nullable: false),
                     CategoryId = table.Column<int>(nullable: false)
@@ -220,9 +222,9 @@ namespace ASM.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "f763332b-374a-4e38-9086-ba8077693039", "Administrator", "Administrator" },
-                    { "B", "bfc1ce6a-6dfc-41f2-a78c-0e4d49dd4fa1", "Customer", "Customer" },
-                    { "C", "7357cb27-d99a-41fd-b6a5-7d4068d46884", "Staff", "Staff" }
+                    { "A", "833a1532-837e-4327-b174-fa91bdfd9851", "Administrator", "Administrator" },
+                    { "B", "c8579fb1-8666-4e72-ba3a-76a9a6ef9b8f", "Customer", "Customer" },
+                    { "C", "90af7cf6-5fdb-49d1-8f57-a52e5e2b92aa", "Staff", "Staff" }
                 });
 
             migrationBuilder.InsertData(
@@ -230,9 +232,9 @@ namespace ASM.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "18f3d524-50d0-4044-9e40-a2fdd5428fc5", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEEHSv3jgNve4S3UL/kdISlXJZHjdpuQVnXYHUxGncznY+XNohBjRt/5f2qYXAAWaJw==", null, false, "ec02c351-431e-46b8-9772-8211432328ff", false, "admin@fpt.com" },
-                    { "2", 0, "4ab2d9fa-a21b-4950-99d1-d1659cf4d40e", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAED8075cUTvQv00LmRO31zbthOTg8+7i94PBpLh+Jx4gQsh8g6VWigheQDcRTAhvnQA==", null, false, "080104dc-ad91-461f-96cc-75055c88c4db", false, "customer@fpt.com" },
-                    { "3", 0, "fadee8d5-be09-4f76-ada2-3e1ca9e114c8", "staff@fpt.com", true, false, null, null, "staff@fpt.com", "AQAAAAEAACcQAAAAEOsOHW3j5oW1xZT+WgM0gpVp0xeUk0O0yTeq5AE+mQQwBn1INTkCcCZuWOn0OWMtoA==", null, false, "9ef9f0a7-a178-419d-afdc-bb621ee462e4", false, "staff@fpt.com" }
+                    { "1", 0, "94a2a276-dea3-4766-87b6-353b6c999edf", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAECRpD5zemtIPc/sXfSplzBi7ldR5rvSBHL1c+g4YI5ybTlksBjwpHgZNcZgyjwxQVQ==", null, false, "6633bdd3-2ceb-4e08-8499-26be596561de", false, "admin@fpt.com" },
+                    { "2", 0, "fa94ae90-6a96-448c-b39d-cac702d97f3b", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEHm43/8ZeX/InqOKwNdA5GXTypMFVeSRG/U298QEaJ0OEX10u1xuAEzgkYqtgU42IQ==", null, false, "f82642bc-7b83-45a2-b380-6868961bc19e", false, "customer@fpt.com" },
+                    { "3", 0, "c6d3504d-7133-4105-adc7-496dce3e3d36", "staff@fpt.com", true, false, null, null, "staff@fpt.com", "AQAAAAEAACcQAAAAECccOxtM40EVRhHjNuJ5LN2GSfrlfTcfH0oC0QBxtizAdHeYR3VTMzZrh9I28jqjjQ==", null, false, "f1c1714e-0abf-48f1-9db8-8accaf95fa9c", false, "staff@fpt.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -252,12 +254,12 @@ namespace ASM.Migrations
 
             migrationBuilder.InsertData(
                 table: "Books",
-                columns: new[] { "Id", "Author", "CategoryId", "ISBN", "Image", "PublicationDate", "Publisher", "Title" },
+                columns: new[] { "Id", "Author", "CategoryId", "ISBN", "Image", "Language", "Price", "PublicationDate", "Publisher", "Title" },
                 values: new object[,]
                 {
-                    { 1, "George Beekman", 1, "1292021063", "https://m.media-amazon.com/images/I/41KpijH6OML._SX392_BO1,204,203,200_.jpg", new DateTime(2013, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pearson", "Digital Planet: Pearson New International Edition: Tomorrow's Technology and You, Complete" },
-                    { 2, "ClydeBank Technology", 1, "1945051086", "https://m.media-amazon.com/images/I/41p8fQ6kRfL._SX331_BO1,204,203,200_.jpg", new DateTime(2016, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), " ClydeBank Media LLC", "ITSM: QuickStart Guide - The Simplified Beginner's Guide to IT Service Management" },
-                    { 3, "James Bernstein", 1, "1983154830", "https://m.media-amazon.com/images/I/41sSdMa14gL._SX348_BO1,204,203,200_.jpg", new DateTime(2018, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "Independently published", "Computers Made Easy: From Dummy To Geek" }
+                    { 1, "George Beekman", 1, "1292021063", "https://m.media-amazon.com/images/I/41KpijH6OML._SX392_BO1,204,203,200_.jpg", "English", 1000000.0, new DateTime(2013, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pearson", "Digital Planet: Pearson New International Edition: Tomorrow's Technology and You, Complete" },
+                    { 2, "ClydeBank Technology", 1, "1945051086", "https://m.media-amazon.com/images/I/41p8fQ6kRfL._SX331_BO1,204,203,200_.jpg", "English", 1000000.0, new DateTime(2016, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), " ClydeBank Media LLC", "ITSM: QuickStart Guide - The Simplified Beginner's Guide to IT Service Management" },
+                    { 3, "James Bernstein", 1, "1983154830", "https://m.media-amazon.com/images/I/41sSdMa14gL._SX348_BO1,204,203,200_.jpg", "English", 1000000.0, new DateTime(2018, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "Independently published", "Computers Made Easy: From Dummy To Geek" }
                 });
 
             migrationBuilder.CreateIndex(

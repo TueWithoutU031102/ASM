@@ -15,7 +15,10 @@
         <div class="nav-link" id="navlink">
             <ul>
                 <li><a asp-area="" asp-controller="Home" asp-action="Index">HOME</a></li>
-                <li><a asp-area="" asp-controller="Book" asp-action="Index">BOOKS</a></li>
+                @if (User.Identity.IsAuthenticated && !User.IsInRole("Customer"))
+                {
+                    <li><a asp-area="" asp-controller="Book" asp-action="Index">BOOKS</a></li>
+                }
                 <li><a asp-area="" asp-controller="Order" asp-action="ViewOrder">ORDER</a></li>
                 <li><a asp-area="" asp-controller="Category" asp-action="Index">CATEGORY</a></li>
                 @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))

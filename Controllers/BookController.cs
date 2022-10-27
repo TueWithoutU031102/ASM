@@ -20,7 +20,8 @@ namespace ASM.Controllers
         [Route("/Book")]
         [HttpGet]
         public IActionResult Index()
-        { 
+        {
+            ViewBag.Total = context.Books.Count();
             return View(context.Books.ToList());
         }
         
