@@ -9,7 +9,6 @@ namespace ASM.Models
         public DateTime RequestDate { get; set; }
         public int Quantity { get; set; }
         public string Status { get; set; }
-
         public string Accepted { get; set; }
         public int BookID { get; set; }
         public Book book { get; set; }

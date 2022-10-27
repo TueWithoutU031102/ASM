@@ -1,5 +1,6 @@
 ﻿@model ICollection<ASM.Models.Book>
-
+    @if (User.Identity.IsAuthenticated )
+    {
 <style>
     .img li {
         position: absolute;
@@ -91,3 +92,8 @@
         </tbody>
     </table>
 </div>
+}
+else{
+    <h1>You do not have permission or login before accessing this page.</h1>
+    <a asp-area="" asp-controller="Home" asp-action="Index">Back to home page</a>
+}

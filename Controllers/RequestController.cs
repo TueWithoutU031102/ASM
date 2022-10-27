@@ -20,12 +20,12 @@ namespace ASM.Controllers
                 this.context = context;
             }
             [HttpGet]
-            public IActionResult MakeRequest()
+/*            public IActionResult MakeRequest()
             {
-*//*                return View(context.Requests.ToList());*//*
-            }
-            [HttpPost]
-            public IActionResult MakeRequest(Book book, int quantity, string status)
+                return View(context.Requests.ToList());
+            }*/
+/*            [HttpPost]
+*//*            public IActionResult MakeRequest(Book book, int quantity, string status)
             {
                 var MakeReq = new Request();
 
@@ -38,13 +38,13 @@ namespace ASM.Controllers
                 context.Requests.Add(MakeReq);
                 context.SaveChanges();
                 return View(context.Requests.ToList());
-            }
+            }*/
             [HttpGet]
             public IActionResult AcpRequest()
             {
                 return View();
             }
-            [HttpPost]
+/*            [HttpPost]
             [Authorize(Roles = "Administrator")]
             public IActionResult AcpRequest(Request request, int id, int bookId, int quantity)
             {
@@ -58,8 +58,8 @@ namespace ASM.Controllers
                 context.Books.Update(book);
                 context.SaveChanges();
                 return RedirectToAction("MakeRequest");
-            }
-            [Authorize(Roles = "Administrator")]
+            }*/
+/*            [Authorize(Roles = "Administrator")]
             public IActionResult RejRequest(Request request, int id)
             {
                 var req = context.Requests
@@ -70,7 +70,7 @@ namespace ASM.Controllers
                 return RedirectToAction("MakeRequest");
 
             }
-
+*/
         }
     }
 
