@@ -26,7 +26,11 @@ namespace ASM.Models
         [Required(ErrorMessage = "Category can not be blank")]
         [Range(1, 9999)]
         public int CategoryId { get; set; }
-        
+
+        [Required]
+        [Range(0, 1000, ErrorMessage = "Price must from 0$ - 1000$")]
+        public double Price { get; set; }
+
         public Category Category { get; set; }
 
         public ICollection<Order> Orders { get; set; }

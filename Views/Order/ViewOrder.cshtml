@@ -2,23 +2,37 @@
 <table class="table">
     <thead class="thead-dark">
         <tr>
-            <th scope="col">#</th>
+            <th scope="col">ID</th>
             <th scope="col">Customer</th>
             <th scope="col">Book Title</th>
             <th scope="col">Time</th>
-            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
         </tr>
     </thead>
     <tbody>
+        @{
+            double total = 0;
+        }
         @foreach (var ord in Model)
         {
             <tr>
                 <th scope="row">@ord.Id</th>
-                <td>@User.Identity.Name</td>
-                <td>@ord.Name</td>
+                <td>@ord.Customer</td>
+                <td>@ord.BookTitle</td>
                 <td>@ord.OrderDate</td>
+                <td>@ord.Price</td>
+                @{
+                    total += ord.Price;
+                }
             </tr>
+            
         }
+        <tr>
+            <td>
+                total : @total
+            </td>
+
+        </tr>
 
 
     </tbody>

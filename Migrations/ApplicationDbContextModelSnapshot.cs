@@ -42,6 +42,9 @@ namespace ASM.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
                     b.Property<DateTime>("PublicationDate")
                         .HasColumnType("datetime2");
 
@@ -68,6 +71,7 @@ namespace ASM.Migrations
                             CategoryId = 1,
                             ISBN = "1292021063",
                             Image = "https://m.media-amazon.com/images/I/41KpijH6OML._SX392_BO1,204,203,200_.jpg",
+                            Price = 1000.0,
                             PublicationDate = new DateTime(2013, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Publisher = "Pearson",
                             Title = "Digital Planet: Pearson New International Edition: Tomorrow's Technology and You, Complete"
@@ -79,6 +83,7 @@ namespace ASM.Migrations
                             CategoryId = 1,
                             ISBN = "1945051086",
                             Image = "https://m.media-amazon.com/images/I/41p8fQ6kRfL._SX331_BO1,204,203,200_.jpg",
+                            Price = 2000.0,
                             PublicationDate = new DateTime(2016, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Publisher = " ClydeBank Media LLC",
                             Title = "ITSM: QuickStart Guide - The Simplified Beginner's Guide to IT Service Management"
@@ -90,6 +95,7 @@ namespace ASM.Migrations
                             CategoryId = 1,
                             ISBN = "1983154830",
                             Image = "https://m.media-amazon.com/images/I/41sSdMa14gL._SX348_BO1,204,203,200_.jpg",
+                            Price = 2500.0,
                             PublicationDate = new DateTime(2018, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Publisher = "Independently published",
                             Title = "Computers Made Easy: From Dummy To Geek"
@@ -131,23 +137,20 @@ namespace ASM.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("BookId")
+                    b.Property<int?>("BookId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Customer")
+                    b.Property<string>("BookTitle")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Customer")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<double>("OrderPrice")
+                    b.Property<double>("Price")
                         .HasColumnType("float");
-
-                    b.Property<int>("OrderQuantity")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -186,21 +189,21 @@ namespace ASM.Migrations
                         new
                         {
                             Id = "A",
-                            ConcurrencyStamp = "10b3e4e4-65a6-475f-8a36-d52b1e4b6e92",
+                            ConcurrencyStamp = "9f6d9def-76e4-4c85-b99c-f30947af1035",
                             Name = "Administrator",
                             NormalizedName = "Administrator"
                         },
                         new
                         {
                             Id = "B",
-                            ConcurrencyStamp = "84c6ec1a-e388-4e76-b063-18d5a122b345",
+                            ConcurrencyStamp = "44a4fa50-16f9-4243-a257-9faecce913d0",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         },
                         new
                         {
                             Id = "C",
-                            ConcurrencyStamp = "3c48b354-7e87-4a80-9618-20f88e5949c8",
+                            ConcurrencyStamp = "f0300460-dee7-47e1-9fba-a9e569e818cc",
                             Name = "Staff",
                             NormalizedName = "Staff"
                         });
@@ -299,14 +302,14 @@ namespace ASM.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "7aea1eeb-f699-41d4-8603-b13128df122d",
+                            ConcurrencyStamp = "b7691d6b-f3dc-4bdb-b711-53ca4995f3a1",
                             Email = "admin@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "admin@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAELZvrv4UKYyw/lDcU5vpvQfJnPy45U/5KDsJYaIgvmzS5fqH5i1TXRKgxfl/mOxmwg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKJMpCSwVIxEuhvqf5nhfjz/ltGVcZTqHYOltKHYVGmXNI2mTjzbi2DPD6gJSr3sAQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "619a0be5-ba80-4d22-a3bc-bf0ca2facebe",
+                            SecurityStamp = "dbe115fe-36ba-45ca-abed-b2e46ca7dc86",
                             TwoFactorEnabled = false,
                             UserName = "admin@fpt.com"
                         },
@@ -314,14 +317,14 @@ namespace ASM.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "663c67aa-9309-4ef1-897b-43e743b03b0e",
+                            ConcurrencyStamp = "9b3da2d8-3385-46b7-aeed-901adf1f3df1",
                             Email = "customer@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "customer@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAm+XmPW9YPT/VyHCPaH5WsQukRzHYBppc9geC/CavLEjjPPrw0sbrI3Um4CxpVuhg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPipjceG7ITUav1vDKAa4PZIggLjOzqcV5YUZR2MYD5iIz8BTNKbr7FMRYGNBzmWRg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "92b120dc-1075-4217-aeb3-5132ab4e74f6",
+                            SecurityStamp = "08541ceb-a895-4c6d-a855-55af0b03dbb6",
                             TwoFactorEnabled = false,
                             UserName = "customer@fpt.com"
                         },
@@ -329,14 +332,14 @@ namespace ASM.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "315b73c8-5847-4631-9886-2991fa8a6783",
+                            ConcurrencyStamp = "dbd6edbd-42ab-4144-992c-7725cdc973f6",
                             Email = "staff@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "staff@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEGs87hn0OIuj/3bYki+U+CppxduBkpNO+N7t/bGyx7H/+Y9fAhSuPodwVdPhT8kcJQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENQq0hUg8wiJdls+NWYzHGIx/fbyFBW55ontZF4crVU1PIxt4usYaJwDnWsFZaM5zQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b464af0f-ae4d-4201-bafe-c93dc1612832",
+                            SecurityStamp = "f18dfabc-e4f5-47dd-9005-321bad6e3480",
                             TwoFactorEnabled = false,
                             UserName = "staff@fpt.com"
                         });
@@ -454,11 +457,9 @@ namespace ASM.Migrations
 
             modelBuilder.Entity("ASM.Models.Order", b =>
                 {
-                    b.HasOne("ASM.Models.Book", "book")
+                    b.HasOne("ASM.Models.Book", "Book")
                         .WithMany("Orders")
-                        .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BookId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

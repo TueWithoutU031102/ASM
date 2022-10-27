@@ -178,7 +178,8 @@ namespace ASM.Migrations
                     Publisher = table.Column<string>(nullable: false),
                     Author = table.Column<string>(nullable: false),
                     Image = table.Column<string>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: false)
+                    CategoryId = table.Column<int>(nullable: false),
+                    Price = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -197,12 +198,11 @@ namespace ASM.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
                     Customer = table.Column<string>(nullable: true),
                     OrderDate = table.Column<DateTime>(nullable: false),
-                    OrderQuantity = table.Column<int>(nullable: false),
-                    OrderPrice = table.Column<double>(nullable: false),
-                    BookId = table.Column<int>(nullable: false)
+                    BookTitle = table.Column<string>(nullable: true),
+                    Price = table.Column<double>(nullable: false),
+                    BookId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -212,7 +212,7 @@ namespace ASM.Migrations
                         column: x => x.BookId,
                         principalTable: "Books",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
@@ -220,9 +220,9 @@ namespace ASM.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "10b3e4e4-65a6-475f-8a36-d52b1e4b6e92", "Administrator", "Administrator" },
-                    { "B", "84c6ec1a-e388-4e76-b063-18d5a122b345", "Customer", "Customer" },
-                    { "C", "3c48b354-7e87-4a80-9618-20f88e5949c8", "Staff", "Staff" }
+                    { "A", "9f6d9def-76e4-4c85-b99c-f30947af1035", "Administrator", "Administrator" },
+                    { "B", "44a4fa50-16f9-4243-a257-9faecce913d0", "Customer", "Customer" },
+                    { "C", "f0300460-dee7-47e1-9fba-a9e569e818cc", "Staff", "Staff" }
                 });
 
             migrationBuilder.InsertData(
@@ -230,9 +230,9 @@ namespace ASM.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "7aea1eeb-f699-41d4-8603-b13128df122d", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAELZvrv4UKYyw/lDcU5vpvQfJnPy45U/5KDsJYaIgvmzS5fqH5i1TXRKgxfl/mOxmwg==", null, false, "619a0be5-ba80-4d22-a3bc-bf0ca2facebe", false, "admin@fpt.com" },
-                    { "2", 0, "663c67aa-9309-4ef1-897b-43e743b03b0e", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEAm+XmPW9YPT/VyHCPaH5WsQukRzHYBppc9geC/CavLEjjPPrw0sbrI3Um4CxpVuhg==", null, false, "92b120dc-1075-4217-aeb3-5132ab4e74f6", false, "customer@fpt.com" },
-                    { "3", 0, "315b73c8-5847-4631-9886-2991fa8a6783", "staff@fpt.com", true, false, null, null, "staff@fpt.com", "AQAAAAEAACcQAAAAEGs87hn0OIuj/3bYki+U+CppxduBkpNO+N7t/bGyx7H/+Y9fAhSuPodwVdPhT8kcJQ==", null, false, "b464af0f-ae4d-4201-bafe-c93dc1612832", false, "staff@fpt.com" }
+                    { "1", 0, "b7691d6b-f3dc-4bdb-b711-53ca4995f3a1", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAEKJMpCSwVIxEuhvqf5nhfjz/ltGVcZTqHYOltKHYVGmXNI2mTjzbi2DPD6gJSr3sAQ==", null, false, "dbe115fe-36ba-45ca-abed-b2e46ca7dc86", false, "admin@fpt.com" },
+                    { "2", 0, "9b3da2d8-3385-46b7-aeed-901adf1f3df1", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEPipjceG7ITUav1vDKAa4PZIggLjOzqcV5YUZR2MYD5iIz8BTNKbr7FMRYGNBzmWRg==", null, false, "08541ceb-a895-4c6d-a855-55af0b03dbb6", false, "customer@fpt.com" },
+                    { "3", 0, "dbd6edbd-42ab-4144-992c-7725cdc973f6", "staff@fpt.com", true, false, null, null, "staff@fpt.com", "AQAAAAEAACcQAAAAENQq0hUg8wiJdls+NWYzHGIx/fbyFBW55ontZF4crVU1PIxt4usYaJwDnWsFZaM5zQ==", null, false, "f18dfabc-e4f5-47dd-9005-321bad6e3480", false, "staff@fpt.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -252,12 +252,12 @@ namespace ASM.Migrations
 
             migrationBuilder.InsertData(
                 table: "Books",
-                columns: new[] { "Id", "Author", "CategoryId", "ISBN", "Image", "PublicationDate", "Publisher", "Title" },
+                columns: new[] { "Id", "Author", "CategoryId", "ISBN", "Image", "Price", "PublicationDate", "Publisher", "Title" },
                 values: new object[,]
                 {
-                    { 1, "George Beekman", 1, "1292021063", "https://m.media-amazon.com/images/I/41KpijH6OML._SX392_BO1,204,203,200_.jpg", new DateTime(2013, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pearson", "Digital Planet: Pearson New International Edition: Tomorrow's Technology and You, Complete" },
-                    { 2, "ClydeBank Technology", 1, "1945051086", "https://m.media-amazon.com/images/I/41p8fQ6kRfL._SX331_BO1,204,203,200_.jpg", new DateTime(2016, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), " ClydeBank Media LLC", "ITSM: QuickStart Guide - The Simplified Beginner's Guide to IT Service Management" },
-                    { 3, "James Bernstein", 1, "1983154830", "https://m.media-amazon.com/images/I/41sSdMa14gL._SX348_BO1,204,203,200_.jpg", new DateTime(2018, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "Independently published", "Computers Made Easy: From Dummy To Geek" }
+                    { 1, "George Beekman", 1, "1292021063", "https://m.media-amazon.com/images/I/41KpijH6OML._SX392_BO1,204,203,200_.jpg", 1000.0, new DateTime(2013, 7, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pearson", "Digital Planet: Pearson New International Edition: Tomorrow's Technology and You, Complete" },
+                    { 2, "ClydeBank Technology", 1, "1945051086", "https://m.media-amazon.com/images/I/41p8fQ6kRfL._SX331_BO1,204,203,200_.jpg", 2000.0, new DateTime(2016, 5, 19, 0, 0, 0, 0, DateTimeKind.Unspecified), " ClydeBank Media LLC", "ITSM: QuickStart Guide - The Simplified Beginner's Guide to IT Service Management" },
+                    { 3, "James Bernstein", 1, "1983154830", "https://m.media-amazon.com/images/I/41sSdMa14gL._SX348_BO1,204,203,200_.jpg", 2500.0, new DateTime(2018, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "Independently published", "Computers Made Easy: From Dummy To Geek" }
                 });
 
             migrationBuilder.CreateIndex(

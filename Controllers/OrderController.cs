@@ -1,8 +1,10 @@
 ﻿using ASM.Data;
 using ASM.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace ASM.Controllers
 {
@@ -15,12 +17,15 @@ namespace ASM.Controllers
             this.context = context;
         }
 
-        public IActionResult MakeOrder(string Title, int book )
+        [HttpPost]
+        public IActionResult MakeOrder(int id)
         {
             var order = new Order();
-            order.BookId = book;
+            order.Id = id;
             order.OrderDate = DateTime.Now;
-            order.Name = Title;
+            order.Customer = User.Identity.Name;
+            order.BookTitle = context.Books.ToList().Last().Title;
+            order.Price = context.Books.ToList().Last().Price;
             context.Orders.Add(order);
             context.SaveChanges();
             return View();

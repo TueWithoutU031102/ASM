@@ -105,6 +105,7 @@ namespace ASM.Data
                     Author = "George Beekman",
                     Image = "https://m.media-amazon.com/images/I/41KpijH6OML._SX392_BO1,204,203,200_.jpg",
                     CategoryId = 1,
+                    Price = 1000
                 },
 
                 new Book
@@ -117,6 +118,7 @@ namespace ASM.Data
                     Author = "ClydeBank Technology",
                     Image = "https://m.media-amazon.com/images/I/41p8fQ6kRfL._SX331_BO1,204,203,200_.jpg",
                     CategoryId = 1,
+                    Price = 2000
                 },
 
                 new Book
@@ -129,6 +131,7 @@ namespace ASM.Data
                     Author = "James Bernstein",
                     Image = "https://m.media-amazon.com/images/I/41sSdMa14gL._SX348_BO1,204,203,200_.jpg",
                     CategoryId = 1,
+                    Price = 2500
                 }
             );
         }
