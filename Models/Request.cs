@@ -1,7 +1,6 @@
-﻿using ASM.Models;
-using System;
+﻿using System;
 
-namespace ASM.Controllers
+namespace ASM.Models
 {
     public class Request
     {
@@ -10,7 +9,6 @@ namespace ASM.Controllers
         public DateTime RequestDate { get; set; }
         public int Quantity { get; set; }
         public string Status { get; set; }
-
         public string Accepted { get; set; }
         public int BookID { get; set; }
         public Book book { get; set; }

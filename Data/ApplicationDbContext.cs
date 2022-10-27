@@ -21,7 +21,7 @@ namespace ASM.Data
         public DbSet<Book> Books { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<Request> Requests { get; set; }
+/*        public DbSet<Request> Requests { get; set; }*/
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -110,24 +110,24 @@ namespace ASM.Data
                 new Book
                 {
                     Id = 2,
-                    Title = "Digital Planet: Pearson New International Edition: Tomorrow's Technology and You, Complete",
-                    ISBN = "1292021063",
-                    PublicationDate = DateTime.Parse("2013-7-20"),
-                    Publisher = "Pearson",
-                    Author = "George Beekman",
-                    Image = "https://m.media-amazon.com/images/I/41KpijH6OML._SX392_BO1,204,203,200_.jpg",
+                    Title = "ITSM: QuickStart Guide - The Simplified Beginner's Guide to IT Service Management",
+                    ISBN = "1945051086",
+                    PublicationDate = DateTime.Parse("2016-5-19"),
+                    Publisher = " ClydeBank Media LLC",
+                    Author = "ClydeBank Technology",
+                    Image = "https://m.media-amazon.com/images/I/41p8fQ6kRfL._SX331_BO1,204,203,200_.jpg",
                     CategoryId = 1,
                 },
 
                 new Book
                 {
                     Id = 3,
-                    Title = "Digital Planet: Pearson New International Edition: Tomorrow's Technology and You, Complete",
-                    ISBN = "1292021063",
-                    PublicationDate = DateTime.Parse("2013-7-20"),
-                    Publisher = "Pearson",
-                    Author = "George Beekman",
-                    Image = "https://m.media-amazon.com/images/I/41KpijH6OML._SX392_BO1,204,203,200_.jpg",
+                    Title = "Computers Made Easy: From Dummy To Geek",
+                    ISBN = "1983154830",
+                    PublicationDate = DateTime.Parse("2018-6-12"),
+                    Publisher = "Independently published",
+                    Author = "James Bernstein",
+                    Image = "https://m.media-amazon.com/images/I/41sSdMa14gL._SX348_BO1,204,203,200_.jpg",
                     CategoryId = 1,
                 }
             );
