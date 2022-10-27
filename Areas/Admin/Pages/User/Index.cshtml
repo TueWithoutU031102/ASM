@@ -35,7 +35,7 @@ else
                     }
 
                 </td>
-                @if (user.UserName != User.Identity.Name)
+                @if (user.RoleNames != "Administrator")
                 {
                     <td>
                         <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@user.Id">
