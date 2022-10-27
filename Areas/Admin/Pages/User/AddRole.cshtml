@@ -2,7 +2,7 @@
 @model ASM.Areas.Admin.Pages.User.AddRoleModel
 @if (!User.Identity.IsAuthenticated || !User.IsInRole("Administrator"))
 {
-    <h1>Bạn không có quyền hoặc hãy đăng nhập trước khi truy cập trang này.</h1>
+    <h1>You do not have permission or login before accessing this page.</h1>
     <a asp-area="" asp-controller="Home" asp-action="Index">Back to home page</a>
 }
 else
