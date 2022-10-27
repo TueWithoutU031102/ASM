@@ -193,14 +193,14 @@ namespace ASM.Migrations
                         new
                         {
                             Id = "B",
-                            ConcurrencyStamp = "37883c4e-b13b-40fd-acb8-3e1ca26ff4a4",
+                            ConcurrencyStamp = "5e9114aa-a70d-41c9-ae6e-886c0acc9e97",
                             Name = "Customer",
                             NormalizedName = "Customer"
                         },
                         new
                         {
                             Id = "C",
-                            ConcurrencyStamp = "aac99915-a303-460b-832c-326ac2f1601c",
+                            ConcurrencyStamp = "d27589cb-e68e-45be-a959-88b407c8fd90",
                             Name = "Staff",
                             NormalizedName = "Staff"
                         });
@@ -299,14 +299,14 @@ namespace ASM.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a241e77b-ff53-4924-8598-88f74f058855",
+                            ConcurrencyStamp = "d17fe442-b638-4ab2-859b-68b6dbc1a3a3",
                             Email = "admin@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "admin@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMSkxaHs0xAOuBxIVKKS66Xfv24vUu4/XPGZtm1iWbWDSb6SLUX0XwSsycs47NN0/g==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJs/cBZroQeTM4PW5r/hZsXl9rq2KLjg9pCcVwnkxpfePxhfwGFQEScMUb6bbgEsLA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "652236aa-e104-438e-a19a-e9fc9ea1fe8b",
+                            SecurityStamp = "7f55282e-a695-4de3-9660-fd4f84b4c1db",
                             TwoFactorEnabled = false,
                             UserName = "admin@fpt.com"
                         },
@@ -314,14 +314,14 @@ namespace ASM.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "18dc7db4-56bc-431f-b265-84f8d373fb8d",
+                            ConcurrencyStamp = "35790ff6-4a64-4b05-9914-32d2363a5d03",
                             Email = "customer@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "customer@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAELQ8AEsDoe6TXP8JpfwgqvHjU9Nrw/LdhRc/FYxlPJmOCrRa8NCV8dld8+3WsY7Ifg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBMYiItW14vHs2qzPR/6K0nIKFUitkeaKYvEj6L6GWfAabiM/vehj5zFvJoEzp+V6w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a37c8087-ac55-4eb5-8213-c254d0d72e6b",
+                            SecurityStamp = "c3f563bf-18ab-4006-ac94-37ec1f7c9603",
                             TwoFactorEnabled = false,
                             UserName = "customer@fpt.com"
                         },
@@ -329,14 +329,14 @@ namespace ASM.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "caa29f64-62f2-41f3-82e0-83216471c52b",
+                            ConcurrencyStamp = "f5d6d1b3-7269-4a9f-82a6-d149e55b7ffc",
                             Email = "staff@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "staff@fpt.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEB+io1cBFxDYK/gMAORdeqbSR3NIDDJ1qO3tKwLGamxkUDdpDigGT984GcQxwz2MpQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGayqeNNXmw7XeJMjxPT/7/DCChwyabLrEjfRVrjQjpvz551xnU0W7omn76NLDNsww==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fc045331-9a2d-40da-b762-1bdcd431b59c",
+                            SecurityStamp = "05ba39d2-e0db-4100-a9d8-5ddb1569752a",
                             TwoFactorEnabled = false,
                             UserName = "staff@fpt.com"
                         });
