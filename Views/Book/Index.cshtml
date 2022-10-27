@@ -1,5 +1,5 @@
 ﻿@model ICollection<ASM.Models.Book>
-    @if (User.Identity.IsAuthenticated && !User.IsInRole("Customer"))
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Staff"))
     {
 <style>
     .img li {
@@ -39,7 +39,7 @@
     <form method="post" asp-controller="Book" asp-action="Search" class="form-inline">
             <input type="search" name="keyword" class="search_bar" placeholder="Search A Book" style="transform: translateX(200%) translateY(100%)" />
     </form>
-    @if (User.Identity.IsAuthenticated && !User.IsInRole("Customer"))
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Staff"))
     {
         <a class="btn btn-primary" asp-action="Create">Create</a>
     }

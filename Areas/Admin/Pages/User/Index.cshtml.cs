@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using ASM.Data;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -26,11 +24,12 @@ namespace ASM.Areas.Admin.Pages.User
             public string RoleNames { get; set; }
         }
         public List<UserAndRole> users { get; set; }
+        public int totalUsers { get; set; }
         public async Task OnGet()
         {
 
             var qr = _userManager.Users.OrderBy(u => u.UserName);
-            var totalUsers = await qr.CountAsync();
+            totalUsers = await qr.CountAsync();
             var qr1 = qr.Select(u => new UserAndRole()
             {
                 Id = u.Id,

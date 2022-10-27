@@ -10,6 +10,7 @@ else
 {
     ViewData["Title"] = "Roles list";
     <h2>@ViewData["Title"]</h2>
+    <h4 class="text text-info">Total books: @Model.totalUsers</h4>
     <partial name="_StatusMessage" model="@Model.StatusMessage" />
     <a class="btn btn-secondary" asp-page="../User/Index">User</a>
     <a class="btn btn-secondary" asp-page="../Role/Index">Roles</a>
@@ -34,11 +35,18 @@ else
                     }
 
                 </td>
-                <td>
-                    <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@user.Id">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                </td>
+                @if (user.UserName != User.Identity.Name)
+                {
+                    <td>
+                        <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@user.Id">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                }
+                else
+                {
+                    <td></td>
+                }
             </tr>
         }
     </table>

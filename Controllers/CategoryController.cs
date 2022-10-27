@@ -100,6 +100,7 @@ namespace ASM.Controllers
             }
             return View("index", categories);
         }
+
         public IActionResult SortNameAsc()
         {
             return View("index", context.Categories.OrderBy(c => c.CategoryName).ToList());

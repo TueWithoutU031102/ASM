@@ -1,5 +1,5 @@
 ﻿@model ASM.Models.Book;
-@if (!User.Identity.IsAuthenticated || User.IsInRole("Customer"))
+@if (!User.Identity.IsAuthenticated || !User.IsInRole("Staff"))
 {
     {
         <h1>You do not have permission or login before accessing this page.</h1>

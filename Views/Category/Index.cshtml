@@ -1,6 +1,6 @@
 ﻿@model ICollection<ASM.Models.Category>
 
-@if (User.Identity.IsAuthenticated)
+@if (User.Identity.IsAuthenticated && User.IsInRole("Staff"))
 {
     <div class="container col-md-8 text-center mt-3">
         <h1 class="text text-danger">Category List</h1>
@@ -10,7 +10,7 @@
                 <input class="search_bar" name="keyword" placeholder="Search" style="transform: translateX(200%) translateY(100%)" />
             </div>
         </form>
-        @if (User.Identity.IsAuthenticated && !User.IsInRole("Customer"))
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Staff"))
         {
             <a class="btn btn-primary" asp-action="Create">Create</a>
         }
@@ -40,7 +40,7 @@
                         <td>@item.CategoryDescription</td>
                         <td>
                             <a class="btn btn-primary" asp-action="Detail" asp-route-id="@item.Id"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                            @if (User.Identity.IsAuthenticated && !User.IsInRole("Customer"))
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Staff"))
                             {
                                 <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                 <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id"
