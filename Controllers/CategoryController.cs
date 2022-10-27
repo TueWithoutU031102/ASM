@@ -91,23 +91,12 @@ namespace ASM.Controllers
         }
 
         [HttpPost]
-        public IActionResult SearchBook(string keyword)
-        {
-            var books = context.Books.Where(b => b.Title.Contains(keyword)).ToList();
-            if (books.Count == 0)
-            {
-                TempData["Message"] = "No book found !";
-            }
-            return View("detail", books);
-        }
-
-        [HttpPost]
         public IActionResult SearchCategory(string keyword)
         {
             var categories = context.Categories.Where(c => c.CategoryName.Contains(keyword)).ToList();
             if (categories.Count == 0)
             {
-                TempData["Message"] = "No categories found !";
+                TempData["Message"] = "No category found !";
             }
             return View("index", categories);
         }
