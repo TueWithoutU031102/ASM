@@ -196,14 +196,22 @@ namespace ASM.Migrations
                         new
                         {
                             Id = "B",
+<<<<<<< HEAD
                             ConcurrencyStamp = "44a4fa50-16f9-4243-a257-9faecce913d0",
+=======
+                            ConcurrencyStamp = "5e9114aa-a70d-41c9-ae6e-886c0acc9e97",
+>>>>>>> 615ff2b489eea107576871fecc600ec1b8559e21
                             Name = "Customer",
                             NormalizedName = "Customer"
                         },
                         new
                         {
                             Id = "C",
+<<<<<<< HEAD
                             ConcurrencyStamp = "f0300460-dee7-47e1-9fba-a9e569e818cc",
+=======
+                            ConcurrencyStamp = "d27589cb-e68e-45be-a959-88b407c8fd90",
+>>>>>>> 615ff2b489eea107576871fecc600ec1b8559e21
                             Name = "Staff",
                             NormalizedName = "Staff"
                         });
@@ -302,14 +310,24 @@ namespace ASM.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
+<<<<<<< HEAD
                             ConcurrencyStamp = "b7691d6b-f3dc-4bdb-b711-53ca4995f3a1",
+=======
+                            ConcurrencyStamp = "d17fe442-b638-4ab2-859b-68b6dbc1a3a3",
+>>>>>>> 615ff2b489eea107576871fecc600ec1b8559e21
                             Email = "admin@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "admin@fpt.com",
+<<<<<<< HEAD
                             PasswordHash = "AQAAAAEAACcQAAAAEKJMpCSwVIxEuhvqf5nhfjz/ltGVcZTqHYOltKHYVGmXNI2mTjzbi2DPD6gJSr3sAQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "dbe115fe-36ba-45ca-abed-b2e46ca7dc86",
+=======
+                            PasswordHash = "AQAAAAEAACcQAAAAEJs/cBZroQeTM4PW5r/hZsXl9rq2KLjg9pCcVwnkxpfePxhfwGFQEScMUb6bbgEsLA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "7f55282e-a695-4de3-9660-fd4f84b4c1db",
+>>>>>>> 615ff2b489eea107576871fecc600ec1b8559e21
                             TwoFactorEnabled = false,
                             UserName = "admin@fpt.com"
                         },
@@ -317,14 +335,24 @@ namespace ASM.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
+<<<<<<< HEAD
                             ConcurrencyStamp = "9b3da2d8-3385-46b7-aeed-901adf1f3df1",
+=======
+                            ConcurrencyStamp = "35790ff6-4a64-4b05-9914-32d2363a5d03",
+>>>>>>> 615ff2b489eea107576871fecc600ec1b8559e21
                             Email = "customer@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "customer@fpt.com",
+<<<<<<< HEAD
                             PasswordHash = "AQAAAAEAACcQAAAAEPipjceG7ITUav1vDKAa4PZIggLjOzqcV5YUZR2MYD5iIz8BTNKbr7FMRYGNBzmWRg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "08541ceb-a895-4c6d-a855-55af0b03dbb6",
+=======
+                            PasswordHash = "AQAAAAEAACcQAAAAEBMYiItW14vHs2qzPR/6K0nIKFUitkeaKYvEj6L6GWfAabiM/vehj5zFvJoEzp+V6w==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "c3f563bf-18ab-4006-ac94-37ec1f7c9603",
+>>>>>>> 615ff2b489eea107576871fecc600ec1b8559e21
                             TwoFactorEnabled = false,
                             UserName = "customer@fpt.com"
                         },
@@ -332,14 +360,24 @@ namespace ASM.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
+<<<<<<< HEAD
                             ConcurrencyStamp = "dbd6edbd-42ab-4144-992c-7725cdc973f6",
+=======
+                            ConcurrencyStamp = "f5d6d1b3-7269-4a9f-82a6-d149e55b7ffc",
+>>>>>>> 615ff2b489eea107576871fecc600ec1b8559e21
                             Email = "staff@fpt.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedUserName = "staff@fpt.com",
+<<<<<<< HEAD
                             PasswordHash = "AQAAAAEAACcQAAAAENQq0hUg8wiJdls+NWYzHGIx/fbyFBW55ontZF4crVU1PIxt4usYaJwDnWsFZaM5zQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "f18dfabc-e4f5-47dd-9005-321bad6e3480",
+=======
+                            PasswordHash = "AQAAAAEAACcQAAAAEGayqeNNXmw7XeJMjxPT/7/DCChwyabLrEjfRVrjQjpvz551xnU0W7omn76NLDNsww==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "05ba39d2-e0db-4100-a9d8-5ddb1569752a",
+>>>>>>> 615ff2b489eea107576871fecc600ec1b8559e21
                             TwoFactorEnabled = false,
                             UserName = "staff@fpt.com"
                         });
