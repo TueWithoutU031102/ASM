@@ -177,10 +177,10 @@ namespace ASM.Migrations
                     PublicationDate = table.Column<DateTime>(nullable: false),
                     Publisher = table.Column<string>(nullable: false),
                     Language = table.Column<string>(nullable: false),
-                    Price = table.Column<double>(nullable: false),
                     Author = table.Column<string>(nullable: false),
                     Image = table.Column<string>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: false)
+                    CategoryId = table.Column<int>(nullable: false),
+                    Price = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -199,12 +199,11 @@ namespace ASM.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
                     Customer = table.Column<string>(nullable: true),
                     OrderDate = table.Column<DateTime>(nullable: false),
-                    OrderQuantity = table.Column<int>(nullable: false),
-                    OrderPrice = table.Column<double>(nullable: false),
-                    BookId = table.Column<int>(nullable: false)
+                    BookTitle = table.Column<string>(nullable: true),
+                    Price = table.Column<double>(nullable: false),
+                    BookId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -214,7 +213,7 @@ namespace ASM.Migrations
                         column: x => x.BookId,
                         principalTable: "Books",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
@@ -222,9 +221,9 @@ namespace ASM.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "A", "833a1532-837e-4327-b174-fa91bdfd9851", "Administrator", "Administrator" },
-                    { "B", "c8579fb1-8666-4e72-ba3a-76a9a6ef9b8f", "Customer", "Customer" },
-                    { "C", "90af7cf6-5fdb-49d1-8f57-a52e5e2b92aa", "Staff", "Staff" }
+                    { "A", "c3053249-64a8-46d3-a632-06f61632b486", "Administrator", "Administrator" },
+                    { "B", "3042f380-d96f-4ec5-83e9-10ddb0c86221", "Customer", "Customer" },
+                    { "C", "dd1e4100-3456-4b26-b0a5-543f46a44587", "Staff", "Staff" }
                 });
 
             migrationBuilder.InsertData(
@@ -232,9 +231,9 @@ namespace ASM.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "94a2a276-dea3-4766-87b6-353b6c999edf", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAECRpD5zemtIPc/sXfSplzBi7ldR5rvSBHL1c+g4YI5ybTlksBjwpHgZNcZgyjwxQVQ==", null, false, "6633bdd3-2ceb-4e08-8499-26be596561de", false, "admin@fpt.com" },
-                    { "2", 0, "fa94ae90-6a96-448c-b39d-cac702d97f3b", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEHm43/8ZeX/InqOKwNdA5GXTypMFVeSRG/U298QEaJ0OEX10u1xuAEzgkYqtgU42IQ==", null, false, "f82642bc-7b83-45a2-b380-6868961bc19e", false, "customer@fpt.com" },
-                    { "3", 0, "c6d3504d-7133-4105-adc7-496dce3e3d36", "staff@fpt.com", true, false, null, null, "staff@fpt.com", "AQAAAAEAACcQAAAAECccOxtM40EVRhHjNuJ5LN2GSfrlfTcfH0oC0QBxtizAdHeYR3VTMzZrh9I28jqjjQ==", null, false, "f1c1714e-0abf-48f1-9db8-8accaf95fa9c", false, "staff@fpt.com" }
+                    { "1", 0, "c19babab-a9b6-4474-bc9f-b01fde69b53b", "admin@fpt.com", true, false, null, null, "admin@fpt.com", "AQAAAAEAACcQAAAAECY7wgoNEsosYejIKM3URQ2tnAhzbJzw0m7y3Vbs0VZMkdic0z9FJA1H2Rx5B6noLA==", null, false, "536ef74d-9dca-45d2-a8b1-2d40f38b1c46", false, "admin@fpt.com" },
+                    { "2", 0, "5fa7a69a-2a40-4f64-a81d-482a0c8bde48", "customer@fpt.com", true, false, null, null, "customer@fpt.com", "AQAAAAEAACcQAAAAEKhYzRVj+gjbjAZt6MRFYl5d0oxXf0RKLjl4AZKXo9Bv29gX/FNgOIee4D96t/SKvA==", null, false, "1251e149-6f98-4715-a39f-e9e66eab4f1b", false, "customer@fpt.com" },
+                    { "3", 0, "2ed3d466-d264-4903-bc60-d2f9ee85cb6d", "staff@fpt.com", true, false, null, null, "staff@fpt.com", "AQAAAAEAACcQAAAAEKkXCv7igBE25ForNhwSxZt3bG2VRoe/7VgBFUf56oxZS3lRY4aIZTHc2m0JfZcL+w==", null, false, "70b85cdd-3408-49f6-90a0-c9bc2d9195f5", false, "staff@fpt.com" }
                 });
 
             migrationBuilder.InsertData(

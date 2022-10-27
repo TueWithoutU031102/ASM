@@ -21,6 +21,7 @@
                 }
                 <li><a asp-area="" asp-controller="Order" asp-action="ViewOrder">ORDER</a></li>
                 <li><a asp-area="" asp-controller="Category" asp-action="Index">CATEGORY</a></li>
+
                 @if (User.Identity.IsAuthenticated && User.IsInRole("Administrator"))
                 {
                     <li><a asp-area="Admin" asp-page="/Role/Index"><i class="" aria-hidden="true"></i>USERS</a> </li>
