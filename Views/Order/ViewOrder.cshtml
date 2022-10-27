@@ -1,0 +1,25 @@
+﻿@model List<Order>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Book Title</th>
+            <th scope="col">Time</th>
+            <th scope="col">Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ord in Model)
+        {
+            <tr>
+                <th scope="row">@ord.Id</th>
+                <td>@User.Identity.Name</td>
+                <td>@ord.Name</td>
+                <td>@ord.OrderDate</td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>

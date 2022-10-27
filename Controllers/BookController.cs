@@ -1,7 +1,10 @@
 ﻿using ASM.Data;
 using ASM.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ASM.Controllers
@@ -39,11 +42,6 @@ namespace ASM.Controllers
             var order = context.Books.Include(c => c.Category).FirstOrDefault(b => b.Id == id);
             return View(order);
         }
-
-/*        public IActionResult AddToCart(int id)
-        {
-
-        }*/
 
         [HttpGet]
         public IActionResult Create()

@@ -34,8 +34,8 @@ namespace ASM.Controllers
         {
             if (id == null)
                 return NotFound();
-            var book = context.Books.Include(c => c.Category).FirstOrDefault(b => b.Id == id);
-            return View(book);
+            var book = context.Books.Include(c => c.Category).FirstOrDefault(b => b.Id ==  id);
+            return View(context.Books.ToList());
         }
         
         public IActionResult Category(int? id)
